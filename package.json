@@ -1,0 +1,25 @@
+{
+  "name": "mongo-express-react-node",
+  "version": "1.0.0",
+  "description": "MERN APP",
+  "main": "index.js",
+  "scripts": {
+    "start":"nodemon server.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/IamGiel/mongo-express-react-node.git"
+  },
+  "author": "Gel",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/IamGiel/mongo-express-react-node/issues"
+  },
+  "homepage": "https://github.com/IamGiel/mongo-express-react-node#readme",
+  "dependencies": {
+    "body-parser": "^1.18.2",
+    "express": "^4.16.3",
+    "mongoose": "^5.0.16"
+  }
+}
