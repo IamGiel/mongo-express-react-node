@@ -1,17 +1,29 @@
-//Express Starter refresher
-//https://www.youtube.com/watch?v=eB9Fq9I5ocs&t=237s
+const express = require("express");
+const bodyParser = require("body-parser");
+const mongoose = require("mongoose");
+const routes = require("./routes");
+const app = express();
+const PORT = process.env.PORT || 3001;
 
-const express = require('express');//#1
-const bodyParser = require('body-parser');//#2
-const mongoose = require('mongoose');
+// Configure body parser for AJAX requests
+app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.json());
+// Serve up static assets
+app.use(express.static("client/build"));
+// Add routes, both API and view
+app.use(routes);
 
-const app = express();//#3
-app.get('/', (req, res)=>{
-  res.send("🌎 is 👀 👍, nice work!!!");
-})
+// Set up promises with mongoose
+mongoose.Promise = global.Promise;
+// Connect to the Mongo DB
+mongoose.connect(
+  process.env.MONGODB_URI || "mongodb://localhost/mernuser",
+  {
+    useMongoClient: true
+  }
+);
 
-const port = 3200;
-app.listen(port, ()=>{
-  console.log(`🌎 can 👀 through port ${port}`)
-})
-
+// Start the API server
+app.listen(PORT, function() {
+  console.log(`🌎  ==> API Server now listening on PORT ${PORT}!`);
+});
