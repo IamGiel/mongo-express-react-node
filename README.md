@@ -8,9 +8,13 @@ The front-end React app will auto-reload as it's updated via webpack dev server,
 
 ## Starting the app locally
 
-Start by installing front and backend dependencies. While in this directory, run the following commands:
+Start by installing front and backend dependencies. Install node, mongodb in you local machine.  While in this directory, run the following commands:
 
 ```
+open terminal and start type: `mongod`
+open new terminal type: `mongo`
+open new terminal type the ff:
+
 yarn install
 cd client
 yarn install
