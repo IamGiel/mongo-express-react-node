@@ -1,5 +1,5 @@
 {
-  "name": "BensApp",
+  "name": "mern",
   "version": "1.0.0",
   "description": "",
   "main": "server.js",
@@ -10,8 +10,7 @@
     "build": "node scripts/build.js",
     "seed": "node scripts/seedDB.js",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "installDeps": "yarn && cd client && yarn",
-    "predeploy": "npm run build"
+    "installDeps": "yarn && cd client && yarn"
   },
   "author": "",
   "license": "ISC",
@@ -24,6 +23,5 @@
     "body-parser": "^1.17.2",
     "express": "^4.15.4",
     "mongoose": "^4.11.7"
-  },
-  "homepage" : "http://myname.github.io/myapp"
+  }
 }

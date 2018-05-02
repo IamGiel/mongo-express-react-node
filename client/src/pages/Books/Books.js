@@ -1,39 +1,35 @@
 import React, { Component } from "react";
+import DeleteBtn from "../../components/DeleteBtn";
 import Jumbotron from "../../components/Jumbotron";
 import API from "../../utils/API";
+import { Link } from "react-router-dom";
 import { Col, Row, Container } from "../../components/Grid";
+import { List, ListItem } from "../../components/List";
 import { Input, FormBtn } from "../../components/Form";
 
-class Signup extends Component {
+class Books extends Component {
   state = {
-    users: [],
+    books: [],
     name: "",
-    lastName: "",
     email: "",
     password: ""
   };
 
   componentDidMount() {
-    this.loadUsers();
+    this.loadBooks();
   }
 
-  loadUsers = () => {
-    API.getAllUsers()
+  loadBooks = () => {
+    API.getBooks()
       .then(res =>
-        this.setState({
-          users: res.data,
-          name: "",
-          lastName: "",
-          email: "",
-          password:""
-        })
+        this.setState({ books: res.data, name: "", email: "", password: "" })
       )
       .catch(err => console.log(err));
   };
 
   deleteBook = id => {
     API.deleteBook(id)
-      .then(res => this.loadUsers())
+      .then(res => this.loadBooks())
       .catch(err => console.log(err));
   };
 
@@ -46,14 +42,13 @@ class Signup extends Component {
 
   handleFormSubmit = event => {
     event.preventDefault();
-    if (this.state.name && this.state.lastName && this.state.email && this.state.password) {
+    if (this.state.name && this.state.email && this.state.password) {
       API.saveBook({
         name: this.state.name,
-        lastName: this.state.lastName,
         email: this.state.email,
         password: this.state.password
       })
-        .then(res => this.loadUsers())
+        .then(res => this.loadBooks())
         .catch(err => console.log(err));
     }
   };
@@ -64,54 +59,60 @@ class Signup extends Component {
         <Row>
           <Col size="md-6">
             <Jumbotron>
-              <h1>Sign-Up</h1>
+              <h1>Sign Up</h1>
             </Jumbotron>
             <form>
               <Input
                 value={this.state.name}
                 onChange={this.handleInputChange}
                 name="name"
-                placeholder="Name (required)"
-              />
-              <Input
-                value={this.state.lastName}
-                onChange={this.handleInputChange}
-                name="lastName"
-                placeholder="Last Name (required)"
+                placeholder="name (required)"
               />
               <Input
                 value={this.state.email}
                 onChange={this.handleInputChange}
                 name="email"
-                placeholder="Email (required)"
+                placeholder="email (required)"
               />
               <Input
-                type="password"
                 value={this.state.password}
                 onChange={this.handleInputChange}
                 name="password"
                 placeholder="password (required)"
               />
               <FormBtn
-                disabled={
-                  !(
-                    this.state.name &&
-                    this.state.lastName &&
-                    this.state.email &&
-                    this.state.password
-                  )
-                }
+                disabled={!(this.state.name && this.state.email && this.state.password)}
                 onClick={this.handleFormSubmit}
               >
-                Submit Profile
+                Submit
               </FormBtn>
             </form>
           </Col>
-          <Col size="md-6 sm-12">{/* maybe an image here instead??? */}</Col>
+          <Col size="md-6 sm-12">
+            <Jumbotron>
+              <h1>Yappers</h1>
+            </Jumbotron>
+            {this.state.books.length ? (
+              <List>
+                {this.state.books.map(book => (
+                  <ListItem key={book._id}>
+                    <Link to={"/books/" + book._id}>
+                      <strong>
+                        {book.name}
+                      </strong>
+                    </Link>
+                    <DeleteBtn onClick={() => this.deleteBook(book._id)} />
+                  </ListItem>
+                ))}
+              </List>
+            ) : (
+              <h3>No Results to Display</h3>
+            )}
+          </Col>
         </Row>
       </Container>
     );
   }
 }
 
-export default Signup;
+export default Books;
