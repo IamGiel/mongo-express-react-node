@@ -9,13 +9,18 @@ const Nav = () => (
           <span className="icon-bar" /> <span className="icon-bar" />
           <span className="icon-bar" />
         </button>
-        <a href="/" className="navbar-brand">
-          YAP{" "}
-          <span role="img" aria-label="Dog">
-            🐶
-          </span>{" "}
-          YAP RDU
+        <ul className="right">
+  <a href="/" className="navbar-brand">
+    YAP{" "}
+    <span role="img" aria-label="Dog">
+      🐶
+    </span>{" "}
+    YAP RDU
+  </a>
+        <a href="/forum" className="navbar-brand right">
+          Forum
         </a>
+        </ul>
       </div>
     </div>
   </nav>
