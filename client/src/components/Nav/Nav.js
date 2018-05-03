@@ -10,16 +10,21 @@ const Nav = () => (
           <span className="icon-bar" />
         </button>
         <ul className="right">
-  <a href="/" className="navbar-brand">
-    YAP{" "}
-    <span role="img" aria-label="Dog">
-      🐶
-    </span>{" "}
-    YAP RDU
-  </a>
-        <a href="/forum" className="navbar-brand right">
-          Forum
-        </a>
+          <a href="/" className="navbar-brand">
+            YAP{" "}
+            <span role="img" aria-label="Dog">
+              🐶
+            </span>{" "}
+            YAP RDU
+          </a>
+          <a href="/forum" className="navbar-brand right">
+            Forum
+          </a>
+          <a href="/search" className="navbar-brand right">
+            Search<span role="img" aria-label="Search">
+              🕵🏻
+            </span>{" "}
+          </a>
         </ul>
       </div>
     </div>
