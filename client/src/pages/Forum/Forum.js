@@ -44,7 +44,7 @@ class Forum extends Component {
               <List>
                 {this.state.books.map(book => (
                   <ListItem key={book._id}>
-                    <Link to={"/books/" + book._id}>
+                    <Link to={"/forum/" + book._id}>
                       <strong>{book.name}</strong>
                     </Link>
                     <DeleteBtn onClick={() => this.deleteBook(book._id)} />
