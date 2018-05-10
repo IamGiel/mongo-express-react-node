@@ -25,15 +25,6 @@ const Nav = () => (
       </div>
       <div class="collapse navbar-collapse" id="myNavbar">
         <ul class="nav navbar-nav">
-          <li class="active">
-            <a href="/">
-              
-              <span role="img" aria-label="Dog">
-                🐶
-              </span>{" "}
-              HOME
-            </a>
-          </li>
           <li>
             <a href="/forum">
               My Favorite Sports Team
