@@ -38,23 +38,23 @@ const Nav = () => (
             </a>
           </li>
           <li>
-            <a href="#">I am skilled</a>
+            <a href="">I am skilled</a>
           </li>
           <li>
-            <a href="#">I need help</a>
+            <a href="">I need help</a>
           </li>
           <li>
-            <a href="#">Health Forum</a>
+            <a href="">Health Forum</a>
           </li>
         </ul>
         <ul class="nav navbar-nav navbar-right">
           <li>
-            <a href="#">
+            <a href="">
               <span class="glyphicon glyphicon-user" /> Sign Up
             </a>
           </li>
           <li>
-            <a href="#">
+            <a href="">
               <span class="glyphicon glyphicon-log-in" /> Login
             </a>
           </li>
