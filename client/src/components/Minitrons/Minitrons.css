@@ -1,0 +1,11 @@
+.minitron {
+  height: 16vh;
+  /* clear: both; */
+  background: antiquewhite;
+  width: 14em;
+  border-radius: 2em;
+  position: relative;
+  display: inline-block;
+  float: left;
+  margin: 1px;
+}

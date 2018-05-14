@@ -5,14 +5,17 @@ import Detail from "./pages/Detail";
 import NoMatch from "./pages/NoMatch";
 import Forum from "./pages/Forum";
 import Search from "./pages/Search";
+import Home from "./pages/Home";
 import Nav from "./components/Nav";
+
+
 
 const App = () => (
   <Router>
     <div>
       <Nav />
       <Switch>
-        <Route exact path="/" component={Books} />
+        <Route exact path="/home" component={Home} />
         <Route exact path="/books" component={Books} />
         <Route exact path="/forum/" component={Forum} />
         <Route exact path="/forum/:id" component={Detail} />
