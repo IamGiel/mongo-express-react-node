@@ -12,16 +12,16 @@ const FriendCard = props => (
           <strong>Name:</strong> {props.name}
         </li>
         <li>
-          <strong>Occupation:</strong> {props.occupation}
+          <strong>Specialty:</strong> {props.specialty}
         </li>
         <li>
-          <strong>Location:</strong> {props.location}
+          <strong>Yap:</strong> {props.about}
         </li>
       </ul>
     </div>
-    <span onClick={() => props.removeFriend(props.id)} className="remove">
-      𝘅
-    </span>
+    <button onClick={() => props.removeFriend(props.id)} className="remove">
+      comment
+    </button>
   </div>
 );
 

@@ -1,22 +1,23 @@
 .card {
   background: #fff;
   border-radius: 2px;
-  height: 325px;
+  height: 56vh;
   margin: 1rem;
   position: relative;
   width: 325px;
   box-shadow: 0 3px 6px #999, 0 3px 6px #999;
   text-align: left;
+  display: inline-block;
 }
 
 .card > .img-container {
-  height: 60%;
+  height: 24vh;
   overflow: hidden;
   text-align: center;
-  background:#6CADDC;
+  background: #6caddc;
 }
 .card > .img-container > img {
-  width: 60%
+  width: 60%;
 }
 
 .card > .content {
@@ -34,12 +35,13 @@
 }
 
 .card > .remove {
-  color: #ff1744;
-  font-size: 48px;
+  color: #6baddd;
+  font-size: 12px;
   position: absolute;
-  top: -20px;
+  top: 52vh;
   right: 5px;
   cursor: pointer;
+  background-color: white;
 }
 
 .card > .remove:hover {
