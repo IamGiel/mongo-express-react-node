@@ -60,8 +60,8 @@ const Nav = () => (
           <li>
             <a href="/contact">
               Yap Contacts{" "}
-              <span role="img" aria-label="meds">
-                🏖
+              <span role="img" aria-label="contacts">
+                📧
               </span>{" "}
             </a>
           </li>

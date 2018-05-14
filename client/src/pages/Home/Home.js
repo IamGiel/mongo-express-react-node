@@ -36,7 +36,7 @@ class Home extends Component {
         <Container fluid>
           <Jumbotron>
             <h1>See whats Yappin'</h1>
-            <p>The community where people can freely talk about just anything... 🐶</p>
+            <p>Blog Freely... 🐶</p>
           </Jumbotron>
         </Container>
 
