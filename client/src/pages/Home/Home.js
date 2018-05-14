@@ -41,8 +41,6 @@ class Home extends Component {
         </Container>
 
         <Container fluid>
-          {/* mapping through Minitrons */}
-
           <Friend image="https://www.ienglishstatus.com/wp-content/uploads/2018/04/Anonymous-Whatsapp-profile-picture.jpg" name="Gel" specialty="web wizard" about="Who took the last cookie from the cookie jar!?" />
           <Friend image="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRVSTY_AM9KwNdNcIoquC8wKNXNMW2IZfdPoi0cbm2-gkA2I-K-" name="Mike" specialty="the goat" about="Who took the last cookie from the cookie jar!?" />
           <Friend image="http://photodoto.com/wp-content/uploads/2013/01/54-self-portrait.jpg" name="John" specialty="rainbow chaser" about="Who took the last cookie from the cookie jar!?" />
