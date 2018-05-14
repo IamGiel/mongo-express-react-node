@@ -1,9 +1,10 @@
 import React from "react";
 import "./Minitrons.css";
 
-const Minitrons = ({ children }) =>
+const Minitrons = (props) => (
   <div className="minitron">
-    {children}
+    <h4>{props.name}</h4>
   </div>
+);
 
 export default Minitrons;

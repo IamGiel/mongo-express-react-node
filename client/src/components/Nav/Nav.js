@@ -68,7 +68,7 @@ const Nav = () => (
         </ul>
         <ul class="nav navbar-nav navbar-right">
           <li>
-            <a href="">
+            <a href="/signup/">
               <span class="glyphicon glyphicon-user" /> Sign Up
             </a>
           </li>

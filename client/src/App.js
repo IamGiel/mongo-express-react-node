@@ -20,6 +20,7 @@ const App = () => (
         <Route exact path="/forum/" component={Forum} />
         <Route exact path="/forum/:id" component={Detail} />
         <Route exact path="/search/" component={Search} />
+        <Route exact path="/signup/" component={Books} />
         <Route component={NoMatch} />
       </Switch>
     </div>

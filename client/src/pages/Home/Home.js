@@ -41,16 +41,11 @@ class Home extends Component {
         </Container>
 
         <Container fluid>
-          <Minitrons fluid />
-          <Minitrons fluid />
-          <Minitrons fluid />
-          <Minitrons fluid />
-          <Minitrons fluid />
-          <Minitrons fluid />
-          <Minitrons fluid />
-          <Minitrons fluid />
-          <Minitrons fluid />
-          <Minitrons fluid />
+          <Minitrons fluid>
+            <h4 name="Gel" />
+          </Minitrons>
+
+
         </Container>
       </div>;
   }
