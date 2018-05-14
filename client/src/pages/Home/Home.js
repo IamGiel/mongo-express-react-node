@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import Jumbotron from "../../components/Jumbotron";
 import { Container } from "../../components/Grid";
 import Minitrons from "../../components/Minitrons";
+import Friend from  "../../components/FriendCard";
 
 
 
@@ -42,10 +43,9 @@ class Home extends Component {
 
         <Container fluid>
           <Minitrons fluid>
+            <Friend />
             <h4 name="Gel" />
           </Minitrons>
-
-
         </Container>
       </div>;
   }

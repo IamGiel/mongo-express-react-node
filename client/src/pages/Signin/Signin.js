@@ -4,7 +4,7 @@ import API from "../../utils/API";
 import { Col, Row, Container } from "../../components/Grid";
 import { Input, FormBtn } from "../../components/Form";
 
-class Books extends Component {
+class Signin extends Component {
   state = {
     books: [],
     name: "",
@@ -56,7 +56,7 @@ class Books extends Component {
         <Row>
           <Col size="md-6">
             <Jumbotron>
-              <h1>Sign Up</h1>
+              <h1>Sign In</h1>
             </Jumbotron>
             <form>
               <Input
@@ -78,20 +78,20 @@ class Books extends Component {
                 placeholder="password (required)"
               />
               <FormBtn
-                disabled={!(this.state.name && this.state.email && this.state.password)}
+                disabled={
+                  !(this.state.name && this.state.email && this.state.password)
+                }
                 onClick={this.handleFormSubmit}
               >
                 Submit
               </FormBtn>
             </form>
           </Col>
-          <Col size="md-6 sm-12">
-            
-          </Col>
+          <Col size="md-6 sm-12" />
         </Row>
       </Container>
     );
   }
 }
 
-export default Books;
+export default Signin;

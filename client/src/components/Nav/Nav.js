@@ -73,7 +73,7 @@ const Nav = () => (
             </a>
           </li>
           <li>
-            <a href="">
+            <a href="/signin/">
               <span class="glyphicon glyphicon-log-in" /> Login
             </a>
           </li>
