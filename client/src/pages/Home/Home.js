@@ -36,7 +36,11 @@ class Home extends Component {
         <Container fluid>
           <Jumbotron>
             <h1>See whats Yappin'</h1>
-            <p>Blog Freely... 🐶</p>
+            <p>
+              Blog Freely... <span role="img" aria-label="Dog">
+                🐶
+              </span>{" "}
+            </p>
           </Jumbotron>
         </Container>
 

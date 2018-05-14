@@ -2,18 +2,18 @@ import React from "react";
 import "./Nav.css";
 
 const Nav = () => (
-  <nav class="navbar navbar-inverse">
-    <div class="container-fluid">
-      <div class="navbar-header">
+  <nav className="navbar navbar-inverse">
+    <div className="container-fluid">
+      <div className="navbar-header">
         <button
           type="button"
-          class="navbar-toggle"
+          className="navbar-toggle"
           data-toggle="collapse"
           data-target="#myNavbar"
         >
-          <span class="icon-bar" />
-          <span class="icon-bar" />
-          <span class="icon-bar" />
+          <span className="icon-bar" />
+          <span className="icon-bar" />
+          <span className="icon-bar" />
         </button>
         <a href="/home" className="navbar-brand">
           YAP{" "}
@@ -23,8 +23,8 @@ const Nav = () => (
           YAP RDU
         </a>
       </div>
-      <div class="collapse navbar-collapse" id="myNavbar">
-        <ul class="nav navbar-nav">
+      <div className="collapse navbar-collapse" id="myNavbar">
+        <ul className="nav navbar-nav">
           <li>
             <a href="/forum">
               Yap Sports{" "}
@@ -66,15 +66,15 @@ const Nav = () => (
             </a>
           </li>
         </ul>
-        <ul class="nav navbar-nav navbar-right">
+        <ul className="nav navbar-nav navbar-right">
           <li>
             <a href="/signup/">
-              <span class="glyphicon glyphicon-user" /> Sign Up
+              <span className="glyphicon glyphicon-user" /> Sign Up
             </a>
           </li>
           <li>
             <a href="/signin/">
-              <span class="glyphicon glyphicon-log-in" /> Login
+              <span className="glyphicon glyphicon-log-in" /> Login
             </a>
           </li>
         </ul>
@@ -84,23 +84,3 @@ const Nav = () => (
 );
 
 export default Nav;
-
-{
-  /* <ul className="right">
-          <a href="/" className="navbar-brand yapyap">
-            YAP{" "}
-            <span role="img" aria-label="Dog">
-              🐶
-            </span>{" "}
-            YAP RDU
-          </a>
-          <a href="/forum" className="navbar-brand right">
-            Forum
-          </a>
-          <a href="/search" className="navbar-brand right">
-            Search<span role="img" aria-label="Search">
-              🕵🏻
-            </span>{" "}
-          </a>
-        </ul> */
-}
