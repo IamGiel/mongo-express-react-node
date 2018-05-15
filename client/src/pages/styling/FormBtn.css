@@ -9,15 +9,17 @@
 }
 
 /* iphone 6 portrait */
-@media only screen and (max-width: 400px) {
-  .startyapping {
-    position: relative;
-    float: left;
-    display: inline-block;
-    top: -5vh;
-    left: 64%;
-    background: lightcyan;
+@media only screen and (max-width: 320px) {
+  .beginYapping {
+    color: #fff;
+    background-color: #337ab7;
+    border-color: #2e6da4;
+    background-color: lightcyan;
+    font-family: sans-serif !important;
     border-radius: 2em;
+    position: relative;
+    left: 4em !important;
+    top: -2vh !important;
   }
 }
 /* iphone 7 portrait */
