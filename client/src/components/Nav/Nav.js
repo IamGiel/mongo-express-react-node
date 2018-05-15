@@ -15,7 +15,7 @@ const Nav = () => (
           <span className="icon-bar" />
           <span className="icon-bar" />
         </button>
-        <a href="/home" className="navbar-brand">
+        <a href="/" className="navbar-brand">
           YAP{" "}
           <span role="img" aria-label="Dog">
             🐶
@@ -26,7 +26,7 @@ const Nav = () => (
       <div className="collapse navbar-collapse" id="myNavbar">
         <ul className="nav navbar-nav">
           <li>
-            <a href="/forum">
+            <a href="/forum/">
               Yap Sports{" "}
               <span role="img" aria-label="Dog">
                 🏈
@@ -34,7 +34,7 @@ const Nav = () => (
             </a>
           </li>
           <li>
-            <a href="/search">
+            <a href="/search/">
               Yap Food{" "}
               <span role="img" aria-label="Dog">
                 🍣
@@ -42,7 +42,7 @@ const Nav = () => (
             </a>
           </li>
           <li>
-            <a href="/health">
+            <a href="/health/">
               Yap Health{" "}
               <span role="img" aria-label="meds">
                 💪
@@ -50,7 +50,7 @@ const Nav = () => (
             </a>
           </li>
           <li>
-          <a href="/places">
+          <a href="/places/">
             Yap Places{" "}
             <span role="img" aria-label="meds">
               🏖
@@ -58,7 +58,7 @@ const Nav = () => (
           </a>
           </li>
           <li>
-            <a href="/contact">
+            <a href="/contact/">
               Yap Contacts{" "}
               <span role="img" aria-label="contacts">
                 📧
