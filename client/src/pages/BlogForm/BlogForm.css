@@ -1,0 +1,9 @@
+@media only screen and (max-width: 400px) {
+  .yapsubmit {
+    position: relative;
+    top: 2vh;
+    text-align: center;
+    left: 19em;
+    width: 23%;
+  }
+}

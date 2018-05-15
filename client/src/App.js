@@ -8,6 +8,8 @@ import Forum from "./pages/Forum";
 import Search from "./pages/Search";
 import Home from "./pages/Home";
 import Nav from "./components/Nav";
+import Blogger from "./pages/BlogForm";
+
 
 
 
@@ -22,6 +24,8 @@ const App = () => (
         <Route exact path="/forum/:id" component={Detail} />
         <Route exact path="/search/" component={Search} />
         <Route exact path="/signin/" component={Signin} />
+        <Route exact path="/blogform/" component={Blogger} />
+        
         <Route component={NoMatch} />
       </Switch>
     </div>

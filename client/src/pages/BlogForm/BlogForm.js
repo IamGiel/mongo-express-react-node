@@ -2,6 +2,9 @@ import React, { Component } from "react";
 import Jumbotron from "../../components/Jumbotron";
 import { Col, Row, Container } from "../../components/Grid";
 import { Input, FormBtn } from "../../components/Form";
+import bloggerAPI from "../../utils/bloggerAPI";
+import "./BlogForm.css"
+
 
 
 class Blogger extends Component {
@@ -41,47 +44,29 @@ class Blogger extends Component {
   };
 
   render() {//renders the form to post a blog card
-    return (
-      <Container fluid>
+    return <Container fluid>
         <Row>
           <Col size="md-6">
             <Jumbotron>
-              <h1>Start a Yap! <span>🐶</span></h1>
+              <h1>
+                Start a Yap! <span role="img" aria-label="Dog">
+                  🐶
+                </span>
+              </h1>
             </Jumbotron>
             <form>
-              <Input
-                value={this.state.name}
-                onChange={this.handleInputChange}
-                name="name"
-                placeholder="name (required)"
-              />
-              <Input
-                value={this.state.email}
-                onChange={this.handleInputChange}
-                name="email"
-                placeholder="email (required)"
-              />
-              <Input
-                value={this.state.password}
-                onChange={this.handleInputChange}
-                name="password"
-                placeholder="password (required)"
-              />
-              <FormBtn
-                disabled={
-                  !(this.state.name && this.state.email && this.state.password)
-                }
-                onClick={this.handleFormSubmit}
-              >
+              <Input value={this.state.name} onChange={this.handleInputChange} name="name" placeholder="name (required)" />
+              <Input value={this.state.email} onChange={this.handleInputChange} name="email" placeholder="email (required)" />
+              <Input value={this.state.password} onChange={this.handleInputChange} name="password" placeholder="password (required)" />
+              <button className="btn btn-warning yapsubmit" disabled={!(this.state.name && this.state.email && this.state.password)} onClick={this.handleFormSubmit}>
                 Submit
-              </FormBtn>
+              </button>
             </form>
           </Col>
           <Col size="md-6 sm-12" />
         </Row>
-      </Container>
-    );
+      </Container>;
   }
 }
 
-export default BlogForm;
+export default Blogger;

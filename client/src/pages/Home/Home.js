@@ -4,8 +4,7 @@ import { Container } from "../../components/Grid";
 import { FormBtn } from "../../components/Form";
 import Friend from  "../../components/FriendCard";
 import bloggerAPI from "../../utils/bloggerAPI";
-// import { Link } from "react-router-dom";
-import { List } from "../../components/List";
+import { Link } from "react-router-dom";
 
 class Blogger extends Component {
   state = {
@@ -53,7 +52,9 @@ class Blogger extends Component {
                 🐶
               </span>
               <p>Respond to any topic below or... </p>
-              <FormBtn>Share a Yap </FormBtn>
+              <FormBtn>
+                <Link to={"/blogform/"}>Share a Yap</Link>{" "}
+              </FormBtn>
             </p>
           </Jumbotron>
         </Container>
@@ -69,7 +70,9 @@ class Blogger extends Component {
                 about={bloggerPerson.about}
               />
             ))}
-          </Container> : <Container><h3>No Bloggers yet</h3></Container>}
+          </Container> : <Container>
+            <h3>No Bloggers yet</h3>
+          </Container>}
       </div>;
   }
 }
