@@ -3,39 +3,53 @@ import Jumbotron from "../../components/Jumbotron";
 import { Container } from "../../components/Grid";
 import { FormBtn } from "../../components/Form";
 import Friend from  "../../components/FriendCard";
+import bloggerAPI from "../../utils/bloggerAPI";
+import { Link } from "react-router-dom";
+import { List } from "../../components/List";
 
-
-
-class Home extends Component {
+class Blogger extends Component {
   state = {
-    books: [],
+    bloggers: [],
+    imgUrl: "",
     name: "",
-    email: "",
-    password: ""
+    subject: "",
+    yap: "",
+    approval:0
   };
 
-  // componentDidMount() {
-  //   this.loadBooks();
-  // }
+  
 
-  // loadBooks = () => {
-  //   API.getBooks()
-  //     .then(res =>
-  //       this.setState({ books: res.data, name: "", email: "", password: "" })
-  //     )
-  //     .catch(err => console.log(err));
-  // };
+  componentDidMount() {
+    console.log(this.state.bloggers);
+    this.loadBloggers();
+  }
 
-  // deleteBook = id => {
-  //   API.deleteBook(id)
-  //     .then(res => this.loadBooks())
-  //     .catch(err => console.log(err));
-  // };
+  loadBloggers = () => {
+    bloggerAPI
+      .getBloggers()
+      .then(res =>
+        this.setState({
+          bloggers: res.data,
+          imgUrl: "",
+          name: "",
+          subject: "",
+          yap:""
+        })
+      )
+      .catch(err => console.log(err));
+  };
+
+  deleteBlog= id => {
+    bloggerAPI
+      .deleteBlogger(id)
+      .then(res => this.loadBloggers())
+      .catch(err => console.log(err));
+  };
 
   render() {
     return <div>
         <Container fluid>
-          <Jumbotron>
+          <Jumbotron style={{ backgroundColor : "antiquewhite"}}>
             <h1>See whats Yappin'</h1>
             <p>
               Blog Freely... <span role="img" aria-label="Dog">
@@ -47,13 +61,21 @@ class Home extends Component {
         </Container>
 
         <Container fluid>
-          <Friend image="https://www.ienglishstatus.com/wp-content/uploads/2018/04/Anonymous-Whatsapp-profile-picture.jpg" name="Gel" yapAbout="cookie jars" about="Who took the last cookie from the cookie jar!?" />
-          <Friend image="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRVSTY_AM9KwNdNcIoquC8wKNXNMW2IZfdPoi0cbm2-gkA2I-K-" name="Mike" yapAbout="Election in Tarzus" about="I say abandon ship in Tarzus!!!" />
-          <Friend image="http://photodoto.com/wp-content/uploads/2013/01/54-self-portrait.jpg" name="John" yapAbout="Boston Celtics" about="If only Kyrie is not injured... smh" />
-          <Friend image="http://www.pnas.org/content/pnas/early/2017/12/19/1721196115/F1.large.jpg" name="Chris" yapAbout="Tech" about="the internet of things... pretty soon I dont have to move a muscle..." />
+          {this.state.bloggers.length ? <List>
+              {this.state.bloggers.map(bloggerPerson => (
+                <Friend key={bloggerPerson._id}>
+                  <Link to={"/bloggers/" + bloggerPerson._id}>
+                    <strong>{bloggerPerson.name}</strong>{" "}
+                    <div style={{ textAlign: "right" }}>
+                      integrity score: 7/10
+                    </div>
+                  </Link>
+                </Friend>
+              ))}
+            </List> : <h3>No Bloggers yet</h3>}
         </Container>
       </div>;
   }
 }
 
-export default Home;
+export default Blogger;

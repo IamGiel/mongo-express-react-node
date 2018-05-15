@@ -1,9 +1,7 @@
 .container-fluid .jumbotron {
-  padding-right: 24px;
-  padding-left: 60px;
-  padding-top: 1em;
-  padding-bottom: 20vh;
-  height: 199px !important;
-  border-radius: 2em;
-  min-height: 191px;
+    padding: 1em 24px 20vh 60px;
+    height: 199px!important;
+    border-radius: 2em;
+    min-height: 191px;
+    background-color: antiquewhite !important;
 }

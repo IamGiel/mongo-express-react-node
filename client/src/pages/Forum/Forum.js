@@ -38,7 +38,8 @@ class Forum extends Component {
             <Jumbotron>
               <h1>Yappers</h1>
             </Jumbotron>
-            {this.state.books.length ? <List>
+            {this.state.books.length ? 
+              <List>
                 {this.state.books.map(yapper => <ListItem key={yapper._id}>
                     <Link to={"/forum/" + yapper._id}>
                       <strong>
