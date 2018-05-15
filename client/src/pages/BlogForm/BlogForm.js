@@ -1,9 +1,9 @@
 import React, { Component } from "react";
 import Jumbotron from "../../components/Jumbotron";
 import { Col, Row, Container } from "../../components/Grid";
-import { Input, FormBtn } from "../../components/Form";
+import { Input } from "../../components/Form";
 import bloggerAPI from "../../utils/bloggerAPI";
-import "./BlogForm.css"
+import "../styling/BlogForm.css"
 
 
 
@@ -27,7 +27,7 @@ class Blogger extends Component {
       .then(res =>
         this.setState({
           bloggers: res.data,
-          imgUrl: "",
+          image: "",
           name: "",
           subject: "",
           yap: ""
@@ -43,7 +43,30 @@ class Blogger extends Component {
       .catch(err => console.log(err));
   };
 
-  render() {//renders the form to post a blog card
+  handleInputChange = event => {
+    const { name, value } = event.target;
+    this.setState({
+      [name]: value
+    });
+  };
+
+  handleFormSubmit = event => {
+    event.preventDefault();
+    if (this.state.image && this.state.name && this.state.subject && this.state.yap) {
+      bloggerAPI
+        .saveBlogger({
+          image: this.state.image,
+          name: this.state.name,
+          email: this.state.email,
+          password: this.state.password
+        })
+        .then(res => this.loadBlogger())
+        .catch(err => console.log(err));
+    }
+  };
+
+  render() {
+    //renders the form to post a blog card
     return <Container fluid>
         <Row>
           <Col size="md-6">
@@ -55,10 +78,12 @@ class Blogger extends Component {
               </h1>
             </Jumbotron>
             <form>
+              <Input value={this.state.image} onChange={this.handleInputChange} name="image" placeholder="image url with .jpg .png .gif (required)" />
               <Input value={this.state.name} onChange={this.handleInputChange} name="name" placeholder="name (required)" />
-              <Input value={this.state.email} onChange={this.handleInputChange} name="email" placeholder="email (required)" />
-              <Input value={this.state.password} onChange={this.handleInputChange} name="password" placeholder="password (required)" />
-              <button className="btn btn-warning yapsubmit" disabled={!(this.state.name && this.state.email && this.state.password)} onClick={this.handleFormSubmit}>
+              <Input value={this.state.subject} onChange={this.handleInputChange} name="subject" placeholder="subject (required)" />
+              <textarea className="blogfrmTxt" value={this.state.yap} onChange={this.handleInputChange} name="yap" placeholder="yap (required)" />
+
+              <button className="btn btn-warning yapsubmit" disabled={!(this.state.image && this.state.name && this.state.subject && this.state.yap)} onClick={this.handleFormSubmit}>
                 Submit
               </button>
             </form>

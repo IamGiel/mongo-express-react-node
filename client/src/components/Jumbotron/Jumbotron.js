@@ -1,5 +1,5 @@
 import React from "react";
-import "./Jumbotron.css";
+import "../../pages/styling/Jumbotron.css";
 
 const Jumbotron = ({ children }) =>
   <div style={{ height: 300, clear: 'both' }} className="jumbotron">

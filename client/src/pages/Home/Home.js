@@ -1,10 +1,10 @@
 import React, { Component } from "react";
 import Jumbotron from "../../components/Jumbotron";
 import { Container } from "../../components/Grid";
-import { FormBtn } from "../../components/Form";
 import Friend from  "../../components/FriendCard";
 import bloggerAPI from "../../utils/bloggerAPI";
 import { Link } from "react-router-dom";
+import "../styling/FormBtn.css"
 
 class Blogger extends Component {
   state = {
@@ -35,13 +35,6 @@ class Blogger extends Component {
       .catch(err => console.log(err));
   };
 
-  deleteBlog= id => {
-    bloggerAPI
-      .deleteBlogger(id)
-      .then(res => this.loadBloggers())
-      .catch(err => console.log(err));
-  };
-
   render() {
     return <div>
         <Container fluid>
@@ -52,9 +45,9 @@ class Blogger extends Component {
                 🐶
               </span>
               <p>Respond to any topic below or... </p>
-              <FormBtn>
+              <button className="beginYapping">
                 <Link to={"/blogform/"}>Share a Yap</Link>{" "}
-              </FormBtn>
+              </button>
             </p>
           </Jumbotron>
         </Container>
@@ -71,7 +64,7 @@ class Blogger extends Component {
               />
             ))}
           </Container> : <Container>
-            <h3>No Bloggers yet</h3>
+            <h3>Start a spark... yap on! </h3>
           </Container>}
       </div>;
   }
