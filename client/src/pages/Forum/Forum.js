@@ -21,8 +21,7 @@ class Forum extends Component {
     API.getBooks()
       .then(res =>
         this.setState({ books: res.data, name: "", email: "", password: "" })
-      )
-      .catch(err => console.log(err));
+      ).catch(err => console.log(err));
   };
 
   // deleteBook = id => {
@@ -38,7 +37,8 @@ class Forum extends Component {
             <Jumbotron>
               <h1>Yappers</h1>
             </Jumbotron>
-            {this.state.books.length ? 
+            {console.log(this.state.books)}
+            {this.state.books.length ?
               <List>
                 {this.state.books.map(yapper => <ListItem key={yapper._id}>
                     <Link to={"/forum/" + yapper._id}>

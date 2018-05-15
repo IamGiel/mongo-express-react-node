@@ -1,0 +1,21 @@
+
+
+.btn-primary {
+    color: #fff;
+    background-color: #337ab7;
+    border-color: #2e6da4;
+    position: relative;
+    float: left;
+    left: 24%;
+    top: -7vh;
+}
+
+@media only screen and (max-width: 400px) {
+  .btn {
+    position: relative;
+    float: left;
+    display: inline-block;
+    top: -1vh;
+    left: 24%;
+  }
+}

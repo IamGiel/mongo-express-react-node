@@ -3,7 +3,7 @@ const db = require("../models/bloggers");
 // Defining methods for the bloggerController
 module.exports = {
   findAll: function(req, res) {
-    db.Bloggers.find(req.query)
+    db.Blogger.find(req.query)
       .sort({ date: -1 })
       .then(dbModel => res.json(dbModel))
       .catch(err => res.status(422).json(err));

@@ -1,7 +1,17 @@
 .container-fluid .jumbotron {
+  padding: 1em 24px 20vh 60px;
+  height: 199px !important;
+  border-radius: 2em;
+  min-height: 191px;
+  background-color: antiquewhite !important;
+}
+
+@media only screen and (max-width: 400px) {
+  .container-fluid .jumbotron {
     padding: 1em 24px 20vh 60px;
-    height: 199px!important;
+    height: 235px !important;
     border-radius: 2em;
     min-height: 191px;
     background-color: antiquewhite !important;
+  }
 }
