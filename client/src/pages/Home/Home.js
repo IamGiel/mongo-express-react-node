@@ -69,7 +69,7 @@ class Blogger extends Component {
                 about={bloggerPerson.about}
               />
             ))}
-          </Container> : <h3>No Bloggers yet</h3>}
+          </Container> : <Container><h3>No Bloggers yet</h3></Container>}
       </div>;
   }
 }
