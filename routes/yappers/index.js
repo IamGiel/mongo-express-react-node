@@ -5,3 +5,7 @@ const bookRoutes = require("./yappers");
 router.use("/yappers", bookRoutes);
 
 module.exports = router;
+
+// workflow
+//server.js defines routes
+//routes define endpoints

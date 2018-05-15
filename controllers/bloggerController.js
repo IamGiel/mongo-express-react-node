@@ -1,31 +1,30 @@
-const db = require("../models/yapper");
+const db = require("../models/bloggers");
 
-// Defining methods for the booksController
+// Defining methods for the bloggerController
 module.exports = {
   findAll: function(req, res) {
-    db.Book
-      .find(req.query)
+    db.Bloggers.find(req.query)
       .sort({ date: -1 })
       .then(dbModel => res.json(dbModel))
       .catch(err => res.status(422).json(err));
   },
   findById: function(req, res) {
-    db.Book.findById(req.params.id)
+    db.Blogger.findById(req.params.id)
       .then(dbModel => res.json(dbModel))
       .catch(err => res.status(422).json(err));
   },
   create: function(req, res) {
-    db.Book.create(req.body)
+    db.Blogger.create(req.body)
       .then(dbModel => res.json(dbModel))
       .catch(err => res.status(422).json(err));
   },
   update: function(req, res) {
-    db.Book.findOneAndUpdate({ _id: req.params.id }, req.body)
+    db.Blogger.findOneAndUpdate({ _id: req.params.id }, req.body)
       .then(dbModel => res.json(dbModel))
       .catch(err => res.status(422).json(err));
   },
   remove: function(req, res) {
-    db.Book.findById({ _id: req.params.id })
+    db.Blogger.findById({ _id: req.params.id })
       .then(dbModel => dbModel.remove())
       .then(dbModel => res.json(dbModel))
       .catch(err => res.status(422).json(err));

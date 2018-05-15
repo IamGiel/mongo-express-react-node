@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import DeleteBtn from "../../components/DeleteBtn";
 import Jumbotron from "../../components/Jumbotron";
 import API from "../../utils/API";
 import { Link } from "react-router-dom";
@@ -26,40 +25,35 @@ class Forum extends Component {
       .catch(err => console.log(err));
   };
 
-  deleteBook = id => {
-    API.deleteBook(id)
-      .then(res => this.loadBooks())
-      .catch(err => console.log(err));
-  };
+  // deleteBook = id => {
+  //   API.deleteBook(id)
+  //     .then(res => this.loadBooks())
+  //     .catch(err => console.log(err));
+  // };
 
   render() {
-    return (
-      <Container fluid>
+    return <Container fluid>
         <Row>
           <Col size="md-6">
             <Jumbotron>
               <h1>Yappers</h1>
             </Jumbotron>
-            {this.state.books.length ? (
-              <List>
-                {this.state.books.map(book => (
-                  <ListItem key={book._id}>
-                    <Link to={"/forum/" + book._id}>
-                      <strong>{book.name}</strong>
+            {this.state.books.length ? <List>
+                {this.state.books.map(yapper => <ListItem key={yapper._id}>
+                    <Link to={"/forum/" + yapper._id}>
+                      <strong>
+                        {yapper.name}
+                      </strong> <div style={{ textAlign: "right" }}>
+                        integrity score: 7/10
+                      </div>
                     </Link>
-                    <DeleteBtn onClick={() => this.deleteBook(book._id)} />
-                  </ListItem>
-                ))}
-              </List>
-            ) : (
-              <h3>No Results to Display</h3>
-            )}
+                  </ListItem>)}
+              </List> : <h3>No Results to Display</h3>}
           </Col>
 
           <Col size="md-6 sm-12" />
         </Row>
-      </Container>
-    );
+      </Container>;
   }
 }
 
