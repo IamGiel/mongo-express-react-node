@@ -4,7 +4,7 @@ import "./FriendCard.css";
 const FriendCard = props => (
   <div className="card">
     <div className="img-container">
-      <img alt={props.name} src={props.image} />
+      <img alt={props.name} src={props.imgUrl} />
     </div>
     <div className="content">
       <ul>
@@ -15,11 +15,16 @@ const FriendCard = props => (
           <strong>Yap'n about:</strong> {props.subject}
         </li>
         <li>
-          <strong>Yap:</strong> {props.about}
+          <strong>Yap:</strong> {props.yap}
         </li>
       </ul>
     </div>
-    <button onClick={() => props.removeFriend(props.id)} className="remove">
+    <button className="likeemoji">
+      <span role="img" aria-label="thumbsup">
+        👍
+      </span>
+    </button>
+    <button onClick={() => props.incrementLike(props.id)} className="increment">
       comment
     </button>
   </div>

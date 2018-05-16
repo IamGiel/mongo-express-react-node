@@ -34,7 +34,7 @@
   margin-top: 18px;
 }
 
-.card > .remove {
+.card > .increment {
   color: #6baddd;
   font-size: 12px;
   position: absolute;
@@ -44,6 +44,15 @@
   background-color: white;
 }
 
-.card > .remove:hover {
+.card > .increment:hover {
   color: #d50000;
+}
+
+.likeemoji {
+  position: absolute !important;
+  display: inline-block;
+  left: 60% !important;
+  font-size: 20px !important;
+  top: 51vh !important;
+  height: -2px;
 }

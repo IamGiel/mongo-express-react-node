@@ -8,12 +8,12 @@
   top: -7vh;
   text-decoration: none !important;
 }
- .beginYapping{
-    color: whitesmoke !important;
-    text-decoration: none;
+.beginYapping {
+  color: whitesmoke !important;
+  text-decoration: none;
 }
 /* iphone 6 portrait */
-@media only screen and (max-width: 320px) {
+@media only screen and (max-width: 375px) {
   .beginYapping {
     color: #fff;
     background-color: #337ab7;
@@ -37,8 +37,8 @@
     font-family: sans-serif !important;
     border-radius: 2em;
     position: relative;
-    left: 8em !important;
-    top: 0vh !important;
+    left: 10em !important;
+    top: 41vh !important;
     text-decoration: none;
   }
 }
@@ -66,9 +66,9 @@
     background-color: lightcyan;
     font-family: sans-serif !important;
     border-radius: 2em;
-    position: relative;
+    position: absolute;
     left: 14em;
-    top: -2em;
+    top: 9em;
     text-decoration: none !important;
   }
 }

@@ -24,15 +24,8 @@ class Blogger extends Component {
     bloggerAPI
       .getBloggers()
       .then(res =>
-        this.setState({
-          bloggers: res.data,
-          imgUrl: "",
-          name: "",
-          subject: "",
-          yap: ""
-        })
-      )
-      .catch(err => console.log(err));
+        this.setState({ bloggers: res.data, imgUrl: "", name: "", subject: "", yap: ""})
+      ).catch(err => console.log(err));
   };
 
   render() {
@@ -44,7 +37,7 @@ class Blogger extends Component {
               Blog Freely... <span role="img" aria-label="Dog">
                 🐶
               </span>
-              <p>Respond to any topic below or... </p>
+              {/* <p>Respond to any topic below or... </p> */}
               <button className="beginYapping">
                 <Link to={"/blogform/"}>Share a Yap</Link>{" "}
               </button>
@@ -57,10 +50,10 @@ class Blogger extends Component {
             {this.state.bloggers.map(bloggerPerson => (
               <Friend
                 key={bloggerPerson._id}
-                image={bloggerPerson.image}
+                imgUrl={bloggerPerson.imgUrl}
                 name={bloggerPerson.name}
                 subject={bloggerPerson.subject}
-                about={bloggerPerson.about}
+                yap={bloggerPerson.yap}
               />
             ))}
           </Container> : <Container>
