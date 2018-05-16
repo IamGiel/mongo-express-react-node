@@ -67,6 +67,7 @@
     right: 5px;
     cursor: pointer;
     background-color: white;
+    width: 64px;
   }
   .card > .img-container {
     height: 34vh;
