@@ -15,7 +15,7 @@ const Nav = () => (
           <span className="icon-bar" />
           <span className="icon-bar" />
         </button>
-        <a href="/home/" className="navbar-brand">
+        <a href="/" className="navbar-brand">
           YAP{" "}
           <span role="img" aria-label="Dog">
             🐶

@@ -116,7 +116,7 @@ class Blogger extends Component {
                 }
                 onClick={this.handleFormSubmit}
               >
-                Submit
+                <a href="/home/">Submit</a>
               </button>
             </form>
           </Col>
