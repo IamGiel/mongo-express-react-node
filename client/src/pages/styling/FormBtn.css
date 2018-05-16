@@ -6,8 +6,12 @@
   float: left;
   left: 1%;
   top: -7vh;
+  text-decoration: none !important;
 }
-
+ .beginYapping{
+    color: whitesmoke !important;
+    text-decoration: none;
+}
 /* iphone 6 portrait */
 @media only screen and (max-width: 320px) {
   .beginYapping {
@@ -20,6 +24,7 @@
     position: relative;
     left: 4em !important;
     top: -2vh !important;
+    text-decoration: none;
   }
 }
 /* iphone 7 portrait */
@@ -34,6 +39,7 @@
     position: relative;
     left: 8em !important;
     top: 0vh !important;
+    text-decoration: none;
   }
 }
 /* laptop portrait */
@@ -48,6 +54,7 @@
     position: relative;
     left: 14em;
     top: -6vh;
+    text-decoration: none !important;
   }
 }
 /* laptop bigger portrait */
@@ -62,5 +69,6 @@
     position: relative;
     left: 14em;
     top: -2em;
+    text-decoration: none !important;
   }
 }

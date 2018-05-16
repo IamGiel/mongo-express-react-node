@@ -27,7 +27,7 @@ class Blogger extends Component {
       .then(res =>
         this.setState({
           bloggers: res.data,
-          image: "",
+          imgUrl: "",
           name: "",
           subject: "",
           yap: ""
@@ -52,10 +52,10 @@ class Blogger extends Component {
 
   handleFormSubmit = event => {
     event.preventDefault();
-    if (this.state.image && this.state.name && this.state.subject && this.state.yap) {
+    if (this.state.imgUrl && this.state.name && this.state.subject && this.state.yap) {
       bloggerAPI
         .saveBlogger({
-          image: this.state.image,
+          imgUrl: this.state.imgUrl,
           name: this.state.name,
           email: this.state.email,
           password: this.state.password
@@ -78,12 +78,12 @@ class Blogger extends Component {
               </h1>
             </Jumbotron>
             <form>
-              <Input value={this.state.image} onChange={this.handleInputChange} name="image" placeholder="image url with .jpg .png .gif (required)" />
+              <Input value={this.state.imgUrl} onChange={this.handleInputChange} name="imgUrl" placeholder="image url with .jpg .png .gif (required)" />
               <Input value={this.state.name} onChange={this.handleInputChange} name="name" placeholder="name (required)" />
               <Input value={this.state.subject} onChange={this.handleInputChange} name="subject" placeholder="subject (required)" />
               <textarea className="blogfrmTxt" value={this.state.yap} onChange={this.handleInputChange} name="yap" placeholder="yap (required)" />
 
-              <button className="btn btn-warning yapsubmit" disabled={!(this.state.image && this.state.name && this.state.subject && this.state.yap)} onClick={this.handleFormSubmit}>
+              <button className="btn btn-warning yapsubmit" disabled={!(this.state.imgUrl && this.state.name && this.state.subject && this.state.yap)} onClick={this.handleFormSubmit}>
                 Submit
               </button>
             </form>

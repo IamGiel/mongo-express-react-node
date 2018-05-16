@@ -5,6 +5,25 @@
     text-align: center;
     left: 19em;
     width: 23%;
+    text-decoration: none;
+  }
+  .blogfrmTxt {
+    position: relative;
+    width: 100%;
+    text-align: justify;
+    text-orientation: inherit;
+    padding: 13px;
+  }
+}
+
+@media only screen and (max-width: 1440px) {
+  .yapsubmit {
+    position: relative;
+    top: 2vh;
+    text-align: center;
+    left: 38em;
+    width: 23%;
+    text-decoration: none;
   }
   .blogfrmTxt {
     position: relative;
