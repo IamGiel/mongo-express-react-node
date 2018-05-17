@@ -27,10 +27,11 @@
 }
 
 .card > .content > ul {
-    list-style-type: none;
-    margin: -9%;
-    position: absolute;
-    top: 17em;
+  list-style-type: none;
+  margin: -9%;
+  position: absolute;
+  top: 17em;
+  width: 100%;
 }
 
 .card > .content > ul > li {
@@ -68,10 +69,12 @@
     font-size: 12px;
     position: absolute;
     top: 71vh;
-    right: 5px;
+    right: 24px;
     cursor: pointer;
-    background-color: white;
-    width: 64px;
+    background-color: #b5d7e4;
+    width: 72px;
+    border-radius: 2em;
+    height: 25px;
   }
   .card > .img-container {
     height: 34vh;
