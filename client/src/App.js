@@ -9,6 +9,7 @@ import Search from "./pages/Search";
 import Home from "./pages/Home";
 import Nav from "./components/Nav";
 import Blogger from "./pages/BlogForm";
+import Test from "./pages/Test";
 
 
 
@@ -18,6 +19,7 @@ const App = () => (
     <div>
       <Nav />
       <Switch>
+        <Route exact path="/test/" component={Test} />
         <Route exact path="/" component={Home} />
         <Route exact path="/signup/" component={Signup} />
         <Route exact path="/forum/" component={Forum} />
@@ -25,7 +27,7 @@ const App = () => (
         <Route exact path="/search/" component={Search} />
         <Route exact path="/signin/" component={Signin} />
         <Route exact path="/blogform/" component={Blogger} />
-        
+
         <Route component={NoMatch} />
       </Switch>
     </div>

@@ -4,7 +4,7 @@
   height: 76vh;
   margin: 1rem;
   position: relative;
-  width: 325px;
+  width: 18em;
   box-shadow: 0 3px 6px #999, 0 3px 6px #999;
   text-align: left;
   display: inline-block;
@@ -51,9 +51,9 @@
 .likeemoji {
   position: absolute !important;
   display: inline-block;
-  left: 60% !important;
+  left: 78% !important;
   font-size: 20px !important;
-  top: 70vh !important;
+  top: 67vh !important;
   height: -2px;
 }
 

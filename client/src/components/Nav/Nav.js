@@ -50,7 +50,7 @@ const Nav = () => (
             </a>
           </li>
           <li>
-          <a href="/places/">
+          <a href="/test/">
             Yap Places{" "}
             <span role="img" aria-label="meds">
               🏖

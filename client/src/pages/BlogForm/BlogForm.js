@@ -5,9 +5,7 @@ import { Input } from "../../components/Form";
 import bloggerAPI from "../../utils/bloggerAPI";
 import { Link } from "react-router-dom";
 
-import "../styling/BlogForm.css"
-
-
+import "../styling/BlogForm.css";
 
 class Blogger extends Component {
   state = {
