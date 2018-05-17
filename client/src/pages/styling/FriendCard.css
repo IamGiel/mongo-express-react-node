@@ -27,7 +27,10 @@
 }
 
 .card > .content > ul {
-  list-style-type: none;
+    list-style-type: none;
+    margin: -9%;
+    position: absolute;
+    top: 17em;
 }
 
 .card > .content > ul > li {
@@ -55,6 +58,7 @@
   font-size: 20px !important;
   top: 67vh !important;
   height: -2px;
+  border-radius: 2em;
 }
 
 /* iphone 7 portrait */
@@ -95,5 +99,6 @@
     top: 65vh !important;
     height: -2px;
     background-color: lightblue;
+    border-radius: 2em;
   }
 }
