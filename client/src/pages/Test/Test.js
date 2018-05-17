@@ -2,29 +2,50 @@ import React, { Component } from "react";
 import "./Test.css";
 
 class Test extends Component {
-  drag_drop = (event) => {
-    event.preventDefault();
-    alert(event.dataTransfer.files[0]);
-    alert(event.dataTransfer.files[0].name);
-    alert(event.dataTransfer.files[0].size + " bytes");
-    /*  This is where to begin uploading the file with Ajax and upload progress bar to PHP script */
-    /*   https://www.developphp.com/video/JavaScript/File-Upload-Progress-Bar-Meter-Tutorial-Ajax-PHP */
-  };
 
-  returnFalse = (event) => {
-    event.preventDefault();
-    return false;
-  }
 
   render() {
     return (
       <div>
-        <h1>File Upload Drop Zone</h1>
-        <div
-          className="drop_zone"
-          onDrop={this.drag_drop}
-          ondragover={"return false"}
-        />
+        {/* stuff here */}
+
+        {/* <!-- HTML heavily inspired by http://blueimp.github.io/jQuery-File-Upload/ --> */}
+<div class="table table-striped" class="files" id="previews">
+
+  <div id="template" class="file-row">
+    {/* <!-- This is used as the file preview template --> */}
+    <div>
+        <span class="preview"><img data-dz-thumbnail /></span>
+    </div>
+    <div>
+        <p class="name" data-dz-name></p>
+        <strong class="error text-danger" data-dz-errormessage></strong>
+    </div>
+    <div>
+        <p class="size" data-dz-size></p>
+        <div class="progress progress-striped active" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0">
+          <div class="progress-bar progress-bar-success" style={{ width:0 }} data-dz-uploadprogress></div>
+        </div>
+    </div>
+    <div>
+      <button class="btn btn-primary start">
+          <i class="glyphicon glyphicon-upload"></i>
+          <span>Start</span>
+      </button>
+      <button data-dz-remove class="btn btn-warning cancel">
+          <i class="glyphicon glyphicon-ban-circle"></i>
+          <span>Cancel</span>
+      </button>
+      <button data-dz-remove class="btn btn-danger delete">
+        <i class="glyphicon glyphicon-trash"></i>
+        <span>Delete</span>
+      </button>
+    </div>
+  </div>
+
+</div>
+
+        {/* end stuff */}
       </div>
     );
   }
