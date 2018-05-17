@@ -1,5 +1,3 @@
-
-
 @media only screen and (max-width: 414px) {
   .yapsubmit {
     position: relative;
@@ -33,5 +31,9 @@
     text-align: justify;
     text-orientation: inherit;
     padding: 13px;
+  }
+  a {
+    color: white !important;
+    text-decoration: none;
   }
 }
