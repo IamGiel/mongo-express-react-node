@@ -8,10 +8,6 @@ import { List, ListItem } from "../../components/List";
 class Forum extends Component {
   state = {
     blogger: [],
-    name: "",
-    email: "",
-    password: "",
-    score:0
   };
 
   componentDidMount() {
@@ -21,7 +17,7 @@ class Forum extends Component {
   loadBooks = () => {
     bloggerAPI.getBloggers()
       .then(res =>
-        this.setState({ blogger: res.data, name: "", email: "", password: "" })
+        this.setState({ blogger: res.data })
       ).catch(err => console.log(err));
   };
 
@@ -38,18 +34,19 @@ class Forum extends Component {
             <Jumbotron>
               <h1>Yappers</h1>
             </Jumbotron>
-            {console.log(this.state.blogger)}
-            {this.state.blogger.length ?
-              <List>
-                {this.state.blogger.map(yapper => <ListItem key={yapper._id}>
+            
+            {console.log(this.state)}
+            {this.state.blogger.length ? <List>
+                {this.state.blogger.map(yapper => (
+                  <ListItem key={yapper._id}>
                     <Link to={"/forum/" + yapper._id}>
-                      <strong>
-                        {yapper.name}
-                      </strong> <div style={{ textAlign: "right" }}>
-                        integrity score: {this.state.score}
+                      <strong>{yapper.name}</strong>{" "}
+                      <div style={{ textAlign: "right" }}>
+                        integrity score: {yapper.score}
                       </div>
                     </Link>
-                  </ListItem>)}
+                  </ListItem>
+                ))}
               </List> : <h3>No Results to Display</h3>}
           </Col>
 

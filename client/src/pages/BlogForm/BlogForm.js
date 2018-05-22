@@ -14,7 +14,7 @@ class Blogger extends Component {
     name: "",
     subject: "",
     yap: "",
-    approval: 0
+    score: ""
   };
 
   componentDidMount() {
@@ -30,7 +30,8 @@ class Blogger extends Component {
           imgUrl: "",
           name: "",
           subject: "",
-          yap: ""
+          yap: "",
+          score:""
         })
       )
       .catch(err => console.log(err));

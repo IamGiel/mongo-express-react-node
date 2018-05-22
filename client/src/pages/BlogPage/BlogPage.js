@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Link } from "react-router-dom";
+// import { Link } from "react-router-dom";
 import { Col, Row, Container } from "../../components/Grid";
 import Jumbotron from "../../components/Jumbotron";
 import bloggerAPI from "../../utils/bloggerAPI";
@@ -21,17 +21,40 @@ class BlogPage extends Component {
   // When this component mounts, grab the book with the _id of this.props.match.params.id
   // e.g. localhost:3000/books/599dcb67f0f16317844583fc
   componentDidMount() {
-    bloggerAPI.getBlogger(this.props.match.params.id)
-      .then(res => this.setState({ bloggerDetail: res.data }))
-      .catch(err => console.log(err));
+    this.loadBloggers();
   }
 
+  loadBloggers = () => {
+    bloggerAPI
+      .getBlogger(this.props.match.params.id)
+      .then(res => this.setState({ bloggerDetail: res.data }))
+      .catch(err => console.log(err));
+  };
+
+  handleLikeBtn = event => {
+    //when this is clicked, increment the score on forum page.
+    event.preventDefault();
+    this.state.bloggerDetail.score++;
+    console.log("this is working...", this.state.bloggerDetail.score);
+    bloggerAPI
+      .saveBlogger({
+        score: this.state.bloggerDetail.score
+      })
+      .then(res => this.loadBloggers())
+      .catch(err => console.log(err));
+  };
+
   render() {
-    return <Container fluid>
+    return (
+      <Container fluid>
         <Row>
           <Col size="md-12">
             <Jumbotron>
-              <img style={imgStyle} src={this.state.bloggerDetail.imgUrl} />
+              <img
+                alt={this.state.bloggerDetail.name}
+                style={imgStyle}
+                src={this.state.bloggerDetail.imgUrl}
+              />
               <h1>{this.state.bloggerDetail.name} is Yappin' 🗣 Here!</h1>
             </Jumbotron>
           </Col>
@@ -41,17 +64,16 @@ class BlogPage extends Component {
             <article>
               <h1>But heres your chance to say what you think...</h1>
               <p>Post an exchange blog here</p>
-              <textarea>
-                write here.
-              </textarea>
+              <textarea>write here.</textarea>
             </article>
           </Col>
         </Row>
         <Row>
           <Col size="md-2">
             <div className="like-blogPage">
-              Like {this.state.bloggerDetail.name}'s thread and spark an interest.
-              <Button>
+              Like {this.state.bloggerDetail.name}'s thread and spark an
+              interest.
+              <Button onClick={this.handleLikeBtn}>
                 <span role="img" aria-label="thumbs">
                   👍
                 </span>{" "}
@@ -59,7 +81,8 @@ class BlogPage extends Component {
             </div>
           </Col>
         </Row>
-      </Container>;
+      </Container>
+    );
   }
 }
 export default BlogPage;

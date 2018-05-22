@@ -60,7 +60,7 @@ class Blogger extends Component {
         {this.state.bloggers.length ? (
           <Container fluid>
             {this.state.bloggers.map(bloggerPerson => (
-              <Hover>
+              <Hover key={bloggerPerson._id}>
                 <Link to={"/blogpage/" + bloggerPerson._id}>
                   <Friend
                     key={bloggerPerson._id}

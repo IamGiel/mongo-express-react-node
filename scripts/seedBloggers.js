@@ -14,6 +14,7 @@ const blogSeed = [
             name: "Gel", 
             subject: "cookie jars", 
             yap: "Who took the last cookie from the cookie jar!?",
+            score:1,
             date: new Date(Date.now())
           },
           {
@@ -21,6 +22,7 @@ const blogSeed = [
             name: "Mike", 
             subject: "Election in Tarzus", 
             yap: "I say abandon ship in Tarzus!!!",
+            score:1,
             date: new Date(Date.now())
           },
           {
@@ -28,6 +30,7 @@ const blogSeed = [
             name: "John", 
             subject: "Boston Celtics", 
             yap: "If only Kyrie is not injured... smh",
+            score:1,
             date: new Date(Date.now())
           },
           {
@@ -35,6 +38,7 @@ const blogSeed = [
             name: "Chris", 
             subject: "Tech", 
             yap: "the internet of things... pretty soon I dont have to move a muscle..." ,
+            score:1,
             date: new Date(Date.now())
           }
 ];
