@@ -24,9 +24,6 @@ const FriendCard = props => (
         👍
       </span>
     </button>
-    <button onClick={() => props.incrementLike(props.id)} className="increment">
-      comment
-    </button>
   </div>
 );
 
