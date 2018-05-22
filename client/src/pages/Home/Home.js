@@ -1,10 +1,12 @@
 import React, { Component } from "react";
 import Jumbotron from "../../components/Jumbotron";
 import { Container } from "../../components/Grid";
-import Friend from  "../../components/FriendCard";
+import Friend from "../../components/FriendCard";
 import bloggerAPI from "../../utils/bloggerAPI";
 import { Link } from "react-router-dom";
-import "../styling/FormBtn.css"
+import Hover from "../../components/Hover/Hover";
+
+import "../styling/FormBtn.css";
 
 class Blogger extends Component {
   state = {
@@ -13,7 +15,7 @@ class Blogger extends Component {
     name: "",
     subject: "",
     yap: "",
-    approval:0
+    approval: 0
   };
 
   componentDidMount() {
@@ -24,17 +26,26 @@ class Blogger extends Component {
     bloggerAPI
       .getBloggers()
       .then(res =>
-        this.setState({ bloggers: res.data, imgUrl: "", name: "", subject: "", yap: ""})
-      ).catch(err => console.log(err));
+        this.setState({
+          bloggers: res.data,
+          imgUrl: "",
+          name: "",
+          subject: "",
+          yap: ""
+        })
+      )
+      .catch(err => console.log(err));
   };
 
   render() {
-    return <div>
+    return (
+      <div>
         <Container fluid>
           <Jumbotron style={{ backgroundColor: "antiquewhite" }}>
             <h1>See whats Yappin'</h1>
             <p>
-              Blog Freely... <span role="img" aria-label="Dog">
+              Blog Freely...{" "}
+              <span role="img" aria-label="Dog">
                 🐶
               </span>
               {/* <p>Respond to any topic below or... </p> */}
@@ -46,20 +57,29 @@ class Blogger extends Component {
         </Container>
         {console.log(this.state.bloggers)}
 
-        {this.state.bloggers.length ? <Container fluid>
+        {this.state.bloggers.length ? (
+          <Container fluid>
             {this.state.bloggers.map(bloggerPerson => (
-              <Friend
-                key={bloggerPerson._id}
-                imgUrl={bloggerPerson.imgUrl}
-                name={bloggerPerson.name}
-                subject={bloggerPerson.subject}
-                yap={bloggerPerson.yap}
-              />
+              <Hover>
+                <Link to={"/blogpage/" + bloggerPerson._id}>
+                  <Friend
+                    key={bloggerPerson._id}
+                    imgUrl={bloggerPerson.imgUrl}
+                    name={bloggerPerson.name}
+                    subject={bloggerPerson.subject}
+                    yap={bloggerPerson.yap}
+                  />
+                </Link>
+              </Hover>
             ))}
-          </Container> : <Container>
+          </Container>
+        ) : (
+          <Container>
             <h3>Start a spark... yap on! </h3>
-          </Container>}
-      </div>;
+          </Container>
+        )}
+      </div>
+    );
   }
 }
 

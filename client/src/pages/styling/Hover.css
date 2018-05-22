@@ -1,0 +1,14 @@
+.hoverEffect {
+  background: #fff;
+  border-radius: 2px;
+  height: 76vh;
+  margin: 1rem;
+  position: relative;
+  width: 18em;
+  text-align: left;
+  display: inline-block;
+}
+
+.hoverEffect :hover {
+  box-shadow:0 0px 19px #999, 0 -3px 28px #999;
+}

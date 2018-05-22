@@ -10,35 +10,43 @@
   display: inline-block;
 }
 
-.card > .img-container {
+.img-container {
   height: 34vh;
   overflow: hidden;
   text-align: center;
   background: #6caddc;
-}
-.card > .img-container > img {
-  width: 60%;
+  box-shadow: none !important;
 }
 
-.card > .content {
+.img-container > img {
+  width: 60%;
+  box-shadow: none !important;
+}
+
+.content {
   padding-left: 1rem;
   padding-right: 1rem;
   font-size: 15px;
+  box-shadow: none !important;
 }
 
-.card > .content > ul {
+.content > ul {
   list-style-type: none;
-  margin: -9%;
+  margin-left: 0%;
   position: absolute;
   top: 17em;
-  width: 100%;
+  width: 80%;
+  left: 0em;
+  box-shadow: none !important;
 }
 
-.card > .content > ul > li {
+.content > ul > li {
   margin-top: 18px;
+  color: black;
+  box-shadow: none !important;
 }
 
-.card > .increment {
+.increment {
   color: #6baddd;
   font-size: 12px;
   position: absolute;
@@ -46,10 +54,6 @@
   right: 5px;
   cursor: pointer;
   background-color: white;
-}
-
-.card > .increment:hover {
-  color: #d50000;
 }
 
 .likeemoji {
@@ -63,9 +67,13 @@
   background-color: lightblue;
 }
 
+a {
+  box-shadow: none !important;
+}
+
 /* iphone 7 portrait */
 @media only screen and (max-width: 414px) {
-  .card > .increment {
+  .increment {
     color: #6baddd;
     font-size: 12px;
     position: absolute;
@@ -77,7 +85,7 @@
     border-radius: 2em;
     height: 25px;
   }
-  .card > .img-container {
+  .img-container {
     height: 34vh;
     overflow: hidden;
     text-align: center;
