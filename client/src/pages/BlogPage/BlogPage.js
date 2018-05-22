@@ -39,7 +39,7 @@ class BlogPage extends Component {
         <Row>
           <Col size="md-10 md-offset-1">
             <article>
-              <h1>But heres your chance to speak yourself...</h1>
+              <h1>But heres your chance to say what you think...</h1>
               <p>Post an exchange blog here</p>
               <textarea>
                 write here.
