@@ -3,6 +3,8 @@ import { Link } from "react-router-dom";
 import { Col, Row, Container } from "../../components/Grid";
 import Jumbotron from "../../components/Jumbotron";
 import bloggerAPI from "../../utils/bloggerAPI";
+import Button from "../../components/Buttons"
+import "../styling/BlogPage.css";
 
 // just to style the image 
 const imgStyle = {
@@ -25,8 +27,7 @@ class BlogPage extends Component {
   }
 
   render() {
-    return (
-      <Container fluid>
+    return <Container fluid>
         <Row>
           <Col size="md-12">
             <Jumbotron>
@@ -40,16 +41,25 @@ class BlogPage extends Component {
             <article>
               <h1>But heres your chance to speak yourself...</h1>
               <p>Post a exchange blog here</p>
+              <textarea>
+                write here.
+              </textarea>
             </article>
           </Col>
         </Row>
         <Row>
           <Col size="md-2">
-            <Link to="/">← Back</Link>
+            <div className="like-blogPage">
+              Like {this.state.bloggerDetail.name}'s thread and spark an interest.
+              <Button>
+                <span role="img" aria-label="thumbs">
+                  👍
+                </span>{" "}
+              </Button>
+            </div>
           </Col>
         </Row>
-      </Container>
-    );
+      </Container>;
   }
 }
 export default BlogPage;

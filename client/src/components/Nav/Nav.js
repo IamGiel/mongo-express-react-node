@@ -27,9 +27,9 @@ const Nav = () => (
         <ul className="nav navbar-nav">
           <li>
             <a href="/forum/">
-              Yap Sports{" "}
-              <span role="img" aria-label="Dog">
-                🏈
+              Yap Scores{" "}
+              <span role="img" aria-label="thumbs">
+                👍
               </span>{" "}
             </a>
           </li>
