@@ -40,7 +40,7 @@ class BlogPage extends Component {
           <Col size="md-10 md-offset-1">
             <article>
               <h1>But heres your chance to speak yourself...</h1>
-              <p>Post a exchange blog here</p>
+              <p>Post an exchange blog here</p>
               <textarea>
                 write here.
               </textarea>

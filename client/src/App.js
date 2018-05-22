@@ -27,7 +27,7 @@ const App = () => (
         <Route exact path="/forum/:id" component={Detail} />
         <Route exact path="/search/" component={Search} />
         <Route exact path="/signin/" component={Signin} />
-        <Route exact path="/blogpage/" component={Blogger} />
+        <Route exact path="/blogform/" component={Blogger} />
         <Route exact path="/blogpage/:id" component={BlogDetail} />
 
         <Route component={NoMatch} />
