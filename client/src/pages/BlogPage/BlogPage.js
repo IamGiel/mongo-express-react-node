@@ -77,6 +77,7 @@ class BlogPage extends Component {
                 src={this.state.bloggerDetail.imgUrl}
               />
               <h1>{this.state.bloggerDetail.name} is Yappin' 🗣 Here!</h1>
+              <h2>"{this.state.bloggerDetail.yap}"</h2>
             </Jumbotron>
           </Col>
         </Row>
