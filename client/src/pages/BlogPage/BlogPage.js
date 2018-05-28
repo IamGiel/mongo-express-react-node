@@ -43,7 +43,7 @@ class BlogPage extends Component {
       const newScore = this.state.score++;
       console.log("this is working...", this.state.score);
 
-    if (this.state.score > 1) {
+    if (this.state.score >= 1) {
       bloggerAPI
         .saveBlogger({
           score: newScore
