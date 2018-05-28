@@ -60,24 +60,43 @@ class BlogPage extends Component {
           </Col>
         </Row>
         <Row>
-          <Col size="md-10 md-offset-1">
-            <article>
-              <h1>But heres your chance to say what you think...</h1>
-              <p>Post an exchange blog here</p>
-              <textarea>write here.</textarea>
-            </article>
-          </Col>
-        </Row>
-        <Row>
-          <Col size="md-2">
-            <div className="like-blogPage">
-              Like {this.state.bloggerDetail.name}'s thread and spark an
-              interest.
-              <Button onClick={this.handleLikeBtn}>
-                <span role="img" aria-label="thumbs">
-                  👍
-                </span>{" "}
-              </Button>
+          <Col size="md-2"></Col>
+          <Col size="md-8">
+            <div class="panel panel-default">
+              <Row>
+                <Col size="md-2"></Col>
+                <Col size="md-8">
+                  <img
+                  alt={this.state.bloggerDetail.name}
+                  style={imgStyle}
+                  src={this.state.bloggerDetail.imgUrl}
+                  class="center-block"
+                  />
+                </Col>
+              </Row>
+              <Row>
+                <Col size="md-2"></Col> 
+                <Col size="md-8">
+                  <article>
+                    <h3>Comment</h3>
+                    <textarea>write here.</textarea>
+                  </article>
+                </Col>
+              </Row>
+              <Row>
+                <Col size="md-2"></Col>
+                <Col size="md-2">
+                  <div className="like-blogPage">
+                    Like {this.state.bloggerDetail.name}'s thread and spark an
+                    interest.
+                    <Button onClick={this.handleLikeBtn}>
+                      <span role="img" aria-label="thumbs">
+                        👍
+                      </span>{" "}
+                    </Button>
+                  </div>
+                </Col>
+              </Row>
             </div>
           </Col>
         </Row>
