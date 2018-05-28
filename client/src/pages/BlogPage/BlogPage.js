@@ -30,27 +30,29 @@ class BlogPage extends Component {
       .then(res =>
         this.setState({
           bloggerDetail: res.data,
-          score: ""
+          score: res.data.score
         })
       )
       .catch(err => console.log(err));
   };
 
   submitLikeBtn = event => {
-    //when this is clicked, increment the score on forum page.
-  
-    event.preventDefault();
-      const newScore = this.state.score++;
-      console.log("this is working...", this.state.score);
+    // //when this is clicked, increment the score on forum page.
 
-    if (this.state.score >= 1) {
-      bloggerAPI
-        .saveBlogger({
-          score: newScore
-        })
-        .then(res => this.loadBloggers())
-        .catch(err => console.log(err));
-    }
+    event.preventDefault();
+    const newScore = this.state.score+= 1;
+    console.log("this is working...", newScore);
+
+    this.setState({
+      score: newScore
+    })
+
+    bloggerAPI
+      .updateBlogger({
+        score: this.state.score
+      })
+      .then(res => this.loadBloggers())
+      .catch(err => console.log(err));
   };
 
   handleInputChange = event => {
@@ -83,6 +85,9 @@ class BlogPage extends Component {
             <article>
               <h1>But heres your chance to say what you think...</h1>
               <p>Post an exchange blog here</p>
+              <p>
+                Current Score: <span> {this.state.score} </span>
+              </p>
               <textarea
                 value={this.state.value}
                 onChange={this.handleInputChange}

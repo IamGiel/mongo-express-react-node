@@ -13,6 +13,10 @@ export default {
   deleteBlogger: function(id) {
     return axios.delete("/bloggers/blogging/" + id);
   },
+  // updates the blogger with the given id
+  updateBlogger: function(id) {
+    return axios.put("/bloggers/blogging/" + id);
+  },
   // Saves a blogger to the database
   saveBlogger: function(bloggerData) {
     return axios.post("/bloggers/blogging/", bloggerData);
