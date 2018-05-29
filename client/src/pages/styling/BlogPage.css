@@ -1,4 +1,13 @@
-.like-blogPage {
+/* .like-blogPage {
   position: relative;
   left: 119px;
+} */
+
+.outlined {
+  outline: 10px solid red;
+  background: transparent;
+}
+
+.offset {
+  outline-offset: -10px;
 }

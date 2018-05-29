@@ -7,11 +7,18 @@ import Button from "../../components/Buttons";
 import "../styling/BlogPage.css";
 
 // just to style the image
+// const imgStyle = {
+//   height: "11em",
+//   width: "15em",
+//   float: "right"
+// };
+
 const imgStyle = {
-  height: "11em",
-  width: "15em",
-  float: "right"
-};
+  outline: "10px",
+  outlineStyle: "outset",
+  height: "100%",
+  maxHeight: "200px"
+}
 
 class BlogPage extends Component {
   state = {
@@ -40,7 +47,7 @@ class BlogPage extends Component {
     // //when this is clicked, increment the score on forum page.
 
     event.preventDefault();
-    const newScore = this.state.score+= 1;
+    let newScore = this.state.score+= 1;
     console.log("this is working...", newScore);
 
     this.setState({
@@ -69,22 +76,45 @@ class BlogPage extends Component {
     return (
       <Container fluid>
         <Row>
-          <Col size="md-12">
-            <Jumbotron>
-              <img
-                alt={this.state.bloggerDetail.name}
-                style={imgStyle}
-                src={this.state.bloggerDetail.imgUrl}
-              />
-              <h1>{this.state.bloggerDetail.name} is Yappin' 🗣 Here!</h1>
-              <h2>"{this.state.bloggerDetail.yap}"</h2>
-            </Jumbotron>
+          <Col size="md-2"></Col>
+          <Col size="md-8">
+            <div class="panel panel-default">
+              <div class="panel-body">
+                <Row>
+                  <Col size="md-1"></Col>
+                  <Col size="md-10">
+                    <h1>Blog of {this.state.bloggerDetail.name}</h1>
+                    <hr/>
+                  </Col>
+                </Row>
+                <Row>
+                  <Col size="md-1"></Col>
+                  <Col size="md-10">
+                    <img
+                      alt={this.state.bloggerDetail.name}
+                      src={this.state.bloggerDetail.imgUrl}
+                      style={imgStyle}
+                    />
+                  </Col>
+                </Row>
+                <Row>
+                  <Col size="md-1"></Col>
+                  <Col size="md-10">
+                    <hr/>
+                    <h1>Blog Post</h1>
+                    <hr/>
+
+                    <h2>{this.state.bloggerDetail.yap}</h2>
+                  </Col>
+                </Row>
+              </div>
+            </div>
           </Col>
         </Row>
         <Row>
           <Col size="md-10 md-offset-1">
             <article>
-              <h1>But heres your chance to say what you think...</h1>
+              <h1>Comment</h1>
               <p>Post an exchange blog here</p>
               <p>
                 Current Score: <span> {this.state.score} </span>
