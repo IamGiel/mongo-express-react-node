@@ -14,8 +14,7 @@ class Blogger extends Component {
     imgUrl: "",
     name: "",
     subject: "",
-    yap: "",
-    approval: 0
+    yap: ""
   };
 
   componentDidMount() {

@@ -2,8 +2,8 @@ import React from "react";
 import "../../pages/styling/FriendCard.css";
 
 const FriendCard = props => (
-  <a href="/blogform/">
-    <div className="card hoverEffect">
+  <div className="card hoverEffect">
+    <a href="/blogform/">
       <div className="img-container">
         <img alt={props.name} src={props.imgUrl} />
       </div>
@@ -25,8 +25,8 @@ const FriendCard = props => (
           👍
         </span>
       </button>
-    </div>
-  </a>
+    </a>
+  </div>
 );
 
 export default FriendCard;

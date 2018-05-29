@@ -3,20 +3,27 @@ import React, { Component } from "react";
 import { Col, Row, Container } from "../../components/Grid";
 import Jumbotron from "../../components/Jumbotron";
 import bloggerAPI from "../../utils/bloggerAPI";
-import Button from "../../components/Buttons"
+import Button from "../../components/Buttons";
 import "../styling/BlogPage.css";
 
-// just to style the image 
-const imgStyle = {
-  height: "11em",
-  width: "15em",
-  float: "right"
-};
+// just to style the image
+// const imgStyle = {
+//   height: "11em",
+//   width: "15em",
+//   float: "right"
+// };
 
+const imgStyle = {
+  outline: "10px",
+  outlineStyle: "outset",
+  height: "100%",
+  maxHeight: "200px"
+}
 
 class BlogPage extends Component {
   state = {
-    bloggerDetail: {}
+    bloggerDetail: {},
+    score: ""
   };
   // When this component mounts, grab the book with the _id of this.props.match.params.id
   // e.g. localhost:3000/books/599dcb67f0f16317844583fc
@@ -27,76 +34,108 @@ class BlogPage extends Component {
   loadBloggers = () => {
     bloggerAPI
       .getBlogger(this.props.match.params.id)
-      .then(res => this.setState({ bloggerDetail: res.data }))
+      .then(res =>
+        this.setState({
+          bloggerDetail: res.data,
+          score: res.data.score
+        })
+      )
       .catch(err => console.log(err));
   };
 
-  handleLikeBtn = event => {
-    //when this is clicked, increment the score on forum page.
+  submitLikeBtn = event => {
+    // //when this is clicked, increment the score on forum page.
+
     event.preventDefault();
-    this.state.bloggerDetail.score++;
-    console.log("this is working...", this.state.bloggerDetail.score);
+    let newScore = this.state.score+= 1;
+    console.log("this is working...", newScore);
+
+    this.setState({
+      score: newScore
+    })
+
     bloggerAPI
-      .saveBlogger({
-        score: this.state.bloggerDetail.score
+      .updateBlogger({
+        score: this.state.score
       })
       .then(res => this.loadBloggers())
       .catch(err => console.log(err));
+  };
+
+  handleInputChange = event => {
+    const { name, value } = event.target;
+    //also translates to...
+    // const name = event.target.name
+    // const value = event.target.value
+    this.setState({
+      [name]: value
+    });
   };
 
   render() {
     return (
       <Container fluid>
         <Row>
-          <Col size="md-12">
-            <Jumbotron>
-              <img
-                alt={this.state.bloggerDetail.name}
-                style={imgStyle}
-                src={this.state.bloggerDetail.imgUrl}
-              />
-              <h1>{this.state.bloggerDetail.name} is Yappin' 🗣 Here!</h1>
-            </Jumbotron>
-          </Col>
-        </Row>
-        <Row>
           <Col size="md-2"></Col>
           <Col size="md-8">
             <div class="panel panel-default">
-              <Row>
-                <Col size="md-2"></Col>
-                <Col size="md-8">
-                  <img
-                  alt={this.state.bloggerDetail.name}
-                  style={imgStyle}
-                  src={this.state.bloggerDetail.imgUrl}
-                  class="center-block"
-                  />
-                </Col>
-              </Row>
-              <Row>
-                <Col size="md-2"></Col> 
-                <Col size="md-8">
-                  <article>
-                    <h3>Comment</h3>
-                    <textarea>write here.</textarea>
-                  </article>
-                </Col>
-              </Row>
-              <Row>
-                <Col size="md-2"></Col>
-                <Col size="md-2">
-                  <div className="like-blogPage">
-                    Like {this.state.bloggerDetail.name}'s thread and spark an
-                    interest.
-                    <Button onClick={this.handleLikeBtn}>
-                      <span role="img" aria-label="thumbs">
-                        👍
-                      </span>{" "}
-                    </Button>
-                  </div>
-                </Col>
-              </Row>
+              <div class="panel-body">
+                <Row>
+                  <Col size="md-1"></Col>
+                  <Col size="md-10">
+                    <h1>Blog of {this.state.bloggerDetail.name}</h1>
+                    <hr/>
+                  </Col>
+                </Row>
+                <Row>
+                  <Col size="md-1"></Col>
+                  <Col size="md-10">
+                    <img
+                      alt={this.state.bloggerDetail.name}
+                      src={this.state.bloggerDetail.imgUrl}
+                      style={imgStyle}
+                    />
+                  </Col>
+                </Row>
+                <Row>
+                  <Col size="md-1"></Col>
+                  <Col size="md-10">
+                    <hr/>
+                    <h1>Blog Post</h1>
+                    <hr/>
+
+                    <h2>{this.state.bloggerDetail.yap}</h2>
+                  </Col>
+                </Row>
+              </div>
+            </div>
+          </Col>
+        </Row>
+        <Row>
+          <Col size="md-10 md-offset-1">
+            <article>
+              <h1>Comment</h1>
+              <p>Post an exchange blog here</p>
+              <p>
+                Current Score: <span> {this.state.score} </span>
+              </p>
+              <textarea
+                value={this.state.value}
+                onChange={this.handleInputChange}
+              />
+            </article>
+          </Col>
+        </Row>
+        <Row>
+          <Col size="md-2">
+            <div className="like-blogPage">
+              Like {this.state.bloggerDetail.name}'s thread and spark an
+              interest.
+              <Button onClick={this.submitLikeBtn}>
+                <span role="img" aria-label="thumbs">
+                  👍
+                </span>{" "}
+              </Button>
             </div>
           </Col>
         </Row>
