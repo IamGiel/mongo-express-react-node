@@ -19,7 +19,7 @@ module.exports = {
       .catch(err => res.status(422).json(err));
   },
   update: function(req, res) {
-    db.Blogger.findOneAndUpdate({ _id: req.params.id }, req.body)
+    db.Blogger.findOneAndUpdate({ _id: req.params.id }, { $inc: { "score": 1 } })
       .then(dbModel => res.json(dbModel))
       .catch(err => res.status(422).json(err));
   },

@@ -55,9 +55,7 @@ class BlogPage extends Component {
     })
 
     bloggerAPI
-      .updateBlogger({
-        score: this.state.score
-      })
+      .updateBlogger()
       .then(res => this.loadBloggers())
       .catch(err => console.log(err));
   };
