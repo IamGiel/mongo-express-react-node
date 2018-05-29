@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 // import { Link } from "react-router-dom";
 import { Col, Row, Container } from "../../components/Grid";
-import Jumbotron from "../../components/Jumbotron";
 import bloggerAPI from "../../utils/bloggerAPI";
 import Button from "../../components/Buttons";
 import "../styling/BlogPage.css";
@@ -47,18 +46,18 @@ class BlogPage extends Component {
     // //when this is clicked, increment the score on forum page.
 
     event.preventDefault();
-    let newScore = this.state.score+= 1;
-    console.log("this is working...", newScore);
-
     this.setState({
-      score: newScore
+      score: this.state.bloggerDetail.score
     })
 
     bloggerAPI
-      .updateBlogger()
-      .then(res => this.loadBloggers())
-      .catch(err => console.log(err));
-  };
+      .updateBlogger(this.props.match.params.id)
+      .then(res =>
+        this.setState({
+          score: res.data.score
+        })
+      )
+    }
 
   handleInputChange = event => {
     const { name, value } = event.target;
