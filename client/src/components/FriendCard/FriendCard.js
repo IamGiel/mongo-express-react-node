@@ -22,7 +22,7 @@ const FriendCard = props => (
       </div>
       <button className="likeemoji">
         <span role="img" aria-label="thumbsup">
-          👍
+          {props.score} 👍
         </span>
       </button>
     </a>

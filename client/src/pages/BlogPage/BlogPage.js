@@ -22,7 +22,7 @@ const imgStyle = {
 class BlogPage extends Component {
   state = {
     bloggerDetail: {},
-    score: ""
+    score: 0
   };
   // When this component mounts, grab the book with the _id of this.props.match.params.id
   // e.g. localhost:3000/books/599dcb67f0f16317844583fc
@@ -46,9 +46,9 @@ class BlogPage extends Component {
     // //when this is clicked, increment the score on forum page.
 
     event.preventDefault();
-    this.setState({
-      score: this.state.bloggerDetail.score
-    })
+    // this.setState({
+    //   score: this.state.bloggerDetail.score
+    // })
 
     bloggerAPI
       .updateBlogger(this.props.match.params.id)
