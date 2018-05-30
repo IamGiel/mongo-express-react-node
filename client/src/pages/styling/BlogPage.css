@@ -11,3 +11,14 @@
 .offset {
   outline-offset: -10px;
 }
+
+.col-md-offset-1 {
+    margin-left: 0%;
+    position: relative;
+    left: 17%;
+}
+.col-md-2 {
+    width: 16.66666667%;
+    position: relative;
+    left: 17%;
+}
