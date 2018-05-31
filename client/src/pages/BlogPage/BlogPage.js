@@ -78,11 +78,13 @@ class BlogPage extends Component {
         <Row>
           <Col size="md-2"></Col>
           <Col size="md-8">
+            {/* putting the blog post inside a panel */}
             <div class="panel panel-default">
               <div class="panel-body">
                 <Row>
                   <Col size="md-1"></Col>
                   <Col size="md-10">
+                    {/* this is the blog of whoever posts */}
                     <h1>Blog of {this.state.bloggerDetail.name}</h1>
                     <hr/>
                   </Col>
@@ -101,9 +103,6 @@ class BlogPage extends Component {
                   <Col size="md-1"></Col>
                   <Col size="md-10">
                     <hr/>
-                    <h1>Blog Post</h1>
-                    <hr/>
-
                     <h2>{this.state.bloggerDetail.yap}</h2>
                   </Col>
                 </Row>
