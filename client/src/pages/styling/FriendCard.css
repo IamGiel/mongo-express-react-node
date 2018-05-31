@@ -32,18 +32,29 @@
 
 .content > ul {
   list-style-type: none;
-  margin-left: 0%;
+  margin-left: 0;
   position: absolute;
-  top: 17em;
+  top: 15em;
   width: 80%;
-  left: 0em;
-  box-shadow: none !important;
+  left: 0;
+  height: -10em;
+}
+.content > ul {
+  list-style-type: none;
+  padding: 20px;
+  position: absolute;
+  top: 45%;
+  height: 55%;
+  width: 100%;
+  left: 0;
 }
 
 .content > ul > li {
-  margin-top: 18px;
+  /* margin-top: 18px; */
   color: black;
   box-shadow: none !important;
+  position: relative;
+  top: 2em;
 }
 
 .increment {
@@ -59,7 +70,7 @@
 .likeemoji {
   position: absolute !important;
   display: inline-block;
-  left: 78% !important;
+  left: 63% !important;
   font-size: 20px !important;
   top: 67vh !important;
   height: -2px;

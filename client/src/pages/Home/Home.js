@@ -67,6 +67,7 @@ class Blogger extends Component {
                     name={bloggerPerson.name}
                     subject={bloggerPerson.subject}
                     yap={bloggerPerson.yap}
+                    score={bloggerPerson.score}
                   />
                 </Link>
               </Hover>

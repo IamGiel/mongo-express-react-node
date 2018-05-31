@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 // import { Link } from "react-router-dom";
 import { Col, Row, Container } from "../../components/Grid";
-import Jumbotron from "../../components/Jumbotron";
 import bloggerAPI from "../../utils/bloggerAPI";
 import Button from "../../components/Buttons";
 import "../styling/BlogPage.css";
@@ -23,7 +22,7 @@ const imgStyle = {
 class BlogPage extends Component {
   state = {
     bloggerDetail: {},
-    score: ""
+    score: 0
   };
   // When this component mounts, grab the book with the _id of this.props.match.params.id
   // e.g. localhost:3000/books/599dcb67f0f16317844583fc
@@ -47,20 +46,18 @@ class BlogPage extends Component {
     // //when this is clicked, increment the score on forum page.
 
     event.preventDefault();
-    let newScore = this.state.score+= 1;
-    console.log("this is working...", newScore);
-
-    this.setState({
-      score: newScore
-    })
+    // this.setState({
+    //   score: this.state.bloggerDetail.score
+    // })
 
     bloggerAPI
-      .updateBlogger({
-        score: this.state.score
-      })
-      .then(res => this.loadBloggers())
-      .catch(err => console.log(err));
-  };
+      .updateBlogger(this.props.match.params.id)
+      .then(res =>
+        this.setState({
+          score: res.data.score
+        })
+      )
+    }
 
   handleInputChange = event => {
     const { name, value } = event.target;
