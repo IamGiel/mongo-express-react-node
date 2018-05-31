@@ -30,14 +30,22 @@
   box-shadow: none !important;
 }
 
-.content > ul {
+.content>ul {
   list-style-type: none;
-  margin-left: 0%;
+  margin-left: 0;
   position: absolute;
-  top: 17em;
+  top: 15em;
   width: 80%;
-  left: 0em;
-  box-shadow: none !important;
+  left: 0;
+  height: -10em;
+}.content>ul {
+  list-style-type: none;
+  margin-left: 0;
+  position: absolute;
+  top: 15em;
+  width: 80%;
+  left: 0;
+  height: -10em;
 }
 
 .content > ul > li {
