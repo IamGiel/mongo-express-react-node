@@ -30,15 +30,7 @@
   box-shadow: none !important;
 }
 
-.content>ul {
-  list-style-type: none;
-  margin-left: 0;
-  position: absolute;
-  top: 15em;
-  width: 80%;
-  left: 0;
-  height: -10em;
-}.content>ul {
+.content > ul {
   list-style-type: none;
   margin-left: 0;
   position: absolute;
@@ -47,11 +39,22 @@
   left: 0;
   height: -10em;
 }
+.content > ul {
+  list-style-type: none;
+  padding: 20px;
+  position: absolute;
+  top: 45%;
+  height: 55%;
+  width: 100%;
+  left: 0;
+}
 
 .content > ul > li {
-  margin-top: 18px;
+  /* margin-top: 18px; */
   color: black;
   box-shadow: none !important;
+  position: relative;
+  top: 2em;
 }
 
 .increment {
