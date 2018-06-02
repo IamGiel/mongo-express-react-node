@@ -14,7 +14,7 @@ class Blogger extends Component {
     name: "",
     subject: "",
     yap: "",
-    score: ""
+    score: 0
   };
 
   componentDidMount() {
@@ -57,7 +57,8 @@ class Blogger extends Component {
           imgUrl: this.state.imgUrl,
           name: this.state.name,
           subject: this.state.subject,
-          yap: this.state.yap
+          yap: this.state.yap,
+          score: this.state.score
         })
         .then(res => this.loadBloggers())
         .catch(err => console.log(err));
