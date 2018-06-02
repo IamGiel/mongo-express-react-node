@@ -1,10 +1,9 @@
 import React from "react";
-import { Link } from "react-router-dom";
 import "../../pages/styling/FriendCard.css";
 
 const FriendCard = props => (
   <div className="card hoverEffect">
-    <Link to="/blogpage/">
+    <a href="/blogform/">
       <div className="img-container">
         <img alt={props.name} src={props.imgUrl} />
       </div>
@@ -26,7 +25,7 @@ const FriendCard = props => (
           {props.score} 👍
         </span>
       </button>
-    </Link>
+    </a>
   </div>
 );
 
