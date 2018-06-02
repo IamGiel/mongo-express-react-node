@@ -19,6 +19,14 @@ const imgStyle = {
   maxHeight: "200px"
 }
 
+const blogTitle = {
+  fontFamily: "Oswald"
+}
+
+const blogBody = {
+  fontFamily: "Arimo"
+}
+
 class BlogPage extends Component {
   state = {
     bloggerDetail: {},
@@ -82,7 +90,7 @@ class BlogPage extends Component {
                   <Col size="md-1"></Col>
                   <Col size="md-10">
                     {/* this is the blog of whoever posts */}
-                    <h1>Blog of {this.state.bloggerDetail.name}</h1>
+                    <h1 style={blogTitle}>Blog of {this.state.bloggerDetail.name}</h1>
                     <hr/>
                   </Col>
                 </Row>
@@ -100,7 +108,7 @@ class BlogPage extends Component {
                   <Col size="md-1"></Col>
                   <Col size="md-10">
                     <hr/>
-                    <h2>{this.state.bloggerDetail.yap}</h2>
+                    <h2 style={blogBody}>{this.state.bloggerDetail.yap}</h2>
                   </Col>
                 </Row>
               </div>
