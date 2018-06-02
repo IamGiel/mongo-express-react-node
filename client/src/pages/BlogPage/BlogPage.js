@@ -19,6 +19,14 @@ const imgStyle = {
   maxHeight: "200px"
 }
 
+const blogTitle = {
+  fontFamily: "Oswald"
+}
+
+const blogBody = {
+  fontFamily: "Arimo"
+}
+
 class BlogPage extends Component {
   state = {
     bloggerDetail: {},
@@ -75,18 +83,13 @@ class BlogPage extends Component {
         <Row>
           <Col size="md-2"></Col>
           <Col size="md-8">
+            {/* putting the blog post inside a panel */}
             <div class="panel panel-default">
               <div class="panel-body">
                 <Row>
                   <Col size="md-1"></Col>
                   <Col size="md-10">
-                    <h1>Blog of {this.state.bloggerDetail.name}</h1>
-                    <hr/>
-                  </Col>
-                </Row>
-                <Row>
-                  <Col size="md-1"></Col>
-                  <Col size="md-10">
+                    <br />
                     <img
                       alt={this.state.bloggerDetail.name}
                       src={this.state.bloggerDetail.imgUrl}
@@ -97,11 +100,11 @@ class BlogPage extends Component {
                 <Row>
                   <Col size="md-1"></Col>
                   <Col size="md-10">
-                    <hr/>
-                    <h1>Blog Post</h1>
-                    <hr/>
+                    <hr />
+                    <h2 style={blogTitle}>{this.state.bloggerDetail.subject}</h2>
+                    <h5>by {this.state.bloggerDetail.name}</h5>
 
-                    <h2>{this.state.bloggerDetail.yap}</h2>
+                    <h3 style={blogBody}>{this.state.bloggerDetail.yap}</h3>
                   </Col>
                 </Row>
               </div>

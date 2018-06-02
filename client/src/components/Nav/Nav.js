@@ -2,7 +2,7 @@ import React from "react";
 import "./Nav.css";
 
 const Nav = () => (
-  <nav className="navbar navbar-inverse">
+  <nav className="navbar navbar-inverse yapyap">
     <div className="container-fluid">
       <div className="navbar-header">
         <button
