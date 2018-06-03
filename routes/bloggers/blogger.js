@@ -12,6 +12,7 @@ router
   .route("/:id")
   .get(bloggerController.findById)
   .put(bloggerController.update)
+  .post(bloggerController.save)
   .delete(bloggerController.remove);
 
 module.exports = router;

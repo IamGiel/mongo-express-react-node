@@ -31,7 +31,7 @@ class Blogger extends Component {
           name: "",
           subject: "",
           yap: "",
-          score:""
+          score: 0
         })
       )
       .catch(err => console.log(err));
@@ -67,30 +67,66 @@ class Blogger extends Component {
 
   render() {
     //renders the form to post a blog card
-    return <Container fluid>
+    return (
+      <Container fluid>
         <Row>
           <Col size="md-6">
             <Jumbotron>
               <h1>
-                Start a yap! <span role="img" aria-label="Dog">
+                Start a yap!{" "}
+                <span role="img" aria-label="Dog">
                   🐶
                 </span>
               </h1>
             </Jumbotron>
             <form>
-              <Input value={this.state.imgUrl} onChange={this.handleInputChange} name="imgUrl" placeholder="image url with .jpg .png .gif (required)" />
-              <Input value={this.state.name} onChange={this.handleInputChange} name="name" placeholder="name (required)" />
-              <Input value={this.state.subject} onChange={this.handleInputChange} name="subject" placeholder="subject (required)" />
-              <textarea className="blogfrmTxt" value={this.state.yap} onChange={this.handleInputChange} name="yap" placeholder="yap (required)" />
-
-              <button className="btn btn-warning aboutsubmit" disabled={!(this.state.imgUrl && this.state.name && this.state.subject && this.state.yap)} onClick={this.handleFormSubmit}>
-                <Link to={"/"}>Submit</Link>
-              </button>
+              <Input
+                value={this.state.imgUrl}
+                onChange={this.handleInputChange}
+                name="imgUrl"
+                placeholder="image url with .jpg .png .gif (required)"
+              />
+              <Input
+                value={this.state.name}
+                onChange={this.handleInputChange}
+                name="name"
+                placeholder="name (required)"
+              />
+              <Input
+                value={this.state.subject}
+                onChange={this.handleInputChange}
+                name="subject"
+                placeholder="subject (required)"
+              />
+              <textarea
+                className="blogfrmTxt"
+                value={this.state.yap}
+                onChange={this.handleInputChange}
+                name="yap"
+                placeholder="yap (required)"
+              />
+              <Link to={"/"}>
+                <button
+                  className="btn btn-warning aboutsubmit"
+                  disabled={
+                    !(
+                      this.state.imgUrl &&
+                      this.state.name &&
+                      this.state.subject &&
+                      this.state.yap
+                    )
+                  }
+                  onClick={this.handleFormSubmit}
+                >
+                  Submit
+                </button>
+              </Link>
             </form>
           </Col>
           <Col size="md-6 sm-12" />
         </Row>
-      </Container>;
+      </Container>
+    );
   }
 }
 
