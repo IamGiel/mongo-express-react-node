@@ -3,6 +3,7 @@ import React, { Component } from "react";
 import { Col, Row, Container } from "../../components/Grid";
 import bloggerAPI from "../../utils/bloggerAPI";
 import Button from "../../components/Buttons";
+import Response from "./Response";
 import "../styling/BlogPage.css";
 
 // just to style the image
@@ -30,11 +31,14 @@ const blogBody = {
 class BlogPage extends Component {
   state = {
     bloggerDetail: {},
-    score: 0
+    score: 0,
+    response: "",
+    responses: [],
   };
   // When this component mounts, grab the book with the _id of this.props.match.params.id
   // e.g. localhost:3000/books/599dcb67f0f16317844583fc
   componentDidMount() {
+    //EH TODO - make sure this loads all response and 
     this.loadBloggers();
   }
 
@@ -44,20 +48,29 @@ class BlogPage extends Component {
       .then(res =>
         this.setState({
           bloggerDetail: res.data,
-          score: res.data.score
+          score: res.data.score,
+          responses: res.data.responses
         })
       )
       .catch(err => console.log(err));
   };
 
+  //Add response to db and then push new response to state
+  addResponse = () => {
+    bloggerAPI.addResponse({
+      blogId: this.state.bloggerDetail._id,
+      response: this.state.response
+    }).then(response => {
+      this.setState({ responses: [...this.state.responses, response.data.response], response: "" })
+    })
+  }
+
   submitLikeBtn = event => {
     // //when this is clicked, increment the score on forum page.
-
     event.preventDefault();
     // this.setState({
     //   score: this.state.bloggerDetail.score
     // })
-
     bloggerAPI
       .updateBlogger(this.props.match.params.id)
       .then(res =>
@@ -65,7 +78,7 @@ class BlogPage extends Component {
           score: res.data.score
         })
       )
-    }
+  }
 
   handleInputChange = event => {
     const { name, value } = event.target;
@@ -78,14 +91,33 @@ class BlogPage extends Component {
   };
 
   render() {
+    let responses;
+    if (this.state.responses.length !== 0) {
+      responses = this.state.responses.map(response => {
+        const { _id, name, text, date, replies } = response
+        return (
+          < Response
+            key={_id}
+            id={_id}
+            name={name}
+            text={text}
+            date={date}
+            replies={replies}
+          />
+        )
+      }
+      )
+    } else {
+      responses = "There are no responses yet."
+    }
     return (
       <Container fluid>
         <Row>
           <Col size="md-2"></Col>
           <Col size="md-8">
             {/* putting the blog post inside a panel */}
-            <div class="panel panel-default">
-              <div class="panel-body">
+            <div className="panel panel-default">
+              <div className="panel-body">
                 <Row>
                   <Col size="md-1"></Col>
                   <Col size="md-10">
@@ -114,15 +146,21 @@ class BlogPage extends Component {
         <Row>
           <Col size="md-10 md-offset-1">
             <article>
-              <h1>Comment</h1>
-              <p>Post an exchange blog here</p>
+              <h1>Respond</h1>
+              <p>Post a response here.</p>
               <p>
                 Current Score: <span> {this.state.score} </span>
               </p>
               <textarea
-                value={this.state.value}
+                name="response"
+                value={this.state.response}
                 onChange={this.handleInputChange}
               />
+              <Button onClick={this.addResponse}>
+                <span>
+                  Submit response
+                </span>
+              </Button>
             </article>
           </Col>
         </Row>
@@ -139,6 +177,13 @@ class BlogPage extends Component {
             </div>
           </Col>
         </Row>
+        <Row>
+          <Col size="md-10 md-offset-1">
+            <h1>Responses</h1>
+            <div>{responses}</div>
+          </Col>
+        </Row>
+
       </Container>
     );
   }
