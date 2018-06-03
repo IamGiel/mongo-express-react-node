@@ -66,11 +66,15 @@ class BlogPage extends Component {
   }
 
   submitLikeBtn = event => {
+<<<<<<< Updated upstream
     // //when this is clicked, increment the score on forum page.
     event.preventDefault();
     // this.setState({
     //   score: this.state.bloggerDetail.score
     // })
+=======
+    event.preventDefault();
+>>>>>>> Stashed changes
     bloggerAPI
       .updateBlogger(this.props.match.params.id)
       .then(res =>
