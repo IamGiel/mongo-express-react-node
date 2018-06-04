@@ -1,5 +1,5 @@
 const mongoose = require("mongoose");
-const db = require("../models/bloggers");
+const db = require("../models/blogs");
 mongoose.Promise = global.Promise;
 
 // This file empties the Books collection and inserts the books below
@@ -43,8 +43,8 @@ const blogSeed = [
           }
 ];
 
-db.Blogger.remove({})
-  .then(() => db.Blogger.collection.insertMany(blogSeed))
+db.Blog.remove({})
+  .then(() => db.Blog.collection.insertMany(blogSeed))
   .then(data => {
     console.log(data.insertedIds.length + " records inserted!");
     process.exit(0);
