@@ -34,6 +34,7 @@ class BlogPage extends Component {
     score: 0,
     response: "",
     responses: [],
+    showResponseForm: false
   };
   // When this component mounts, grab the book with the _id of this.props.match.params.id
   // e.g. localhost:3000/books/599dcb67f0f16317844583fc
@@ -62,6 +63,7 @@ class BlogPage extends Component {
       response: this.state.response
     }).then(response => {
       this.setState({ responses: [...this.state.responses, response.data.response], response: "" })
+      this.toggleAddResponse();
     })
   }
 
@@ -76,6 +78,11 @@ class BlogPage extends Component {
       )
   }
 
+  toggleAddResponse = () => {
+    this.state.showResponseForm ? this.setState({ showResponseForm: false }) : this.setState({ showResponseForm: true })
+
+  }
+
   handleInputChange = event => {
     const { name, value } = event.target;
     //also translates to...
@@ -87,6 +94,31 @@ class BlogPage extends Component {
   };
 
   render() {
+
+    //Add response conditional render
+    let responseArea;
+    if (this.state.showResponseForm) {
+      responseArea = (
+        <div className="response-form">
+            <textarea
+              name="response"
+              value={this.state.response}
+              onChange={this.handleInputChange}
+            />
+            <Button onClick={this.addResponse}>
+              <span>Submit response</span>
+            </Button>
+        </div>
+      )
+    } else {
+      responseArea = (
+        <Button onClick={this.toggleAddResponse}>
+          <span>Add a response</span>
+        </Button>
+      )
+    }
+
+    //Responses conditional render
     let responses;
     if (this.state.responses.length !== 0) {
       responses = this.state.responses.map(response => {
@@ -106,6 +138,7 @@ class BlogPage extends Component {
     } else {
       responses = "There are no responses yet."
     }
+
     return (
       <Container fluid>
         <Row>
@@ -117,7 +150,6 @@ class BlogPage extends Component {
                 <Row>
                   <Col size="md-1"></Col>
                   <Col size="md-10">
-                    <br />
                     <img
                       alt={this.state.bloggerDetail.name}
                       src={this.state.bloggerDetail.imgUrl}
@@ -126,7 +158,6 @@ class BlogPage extends Component {
                   </Col>
                 </Row>
                 <Row>
-                  <Col size="md-1"></Col>
                   <Col size="md-10">
                     <hr />
                     <h2 style={blogTitle}>{this.state.bloggerDetail.subject}</h2>
@@ -140,39 +171,30 @@ class BlogPage extends Component {
           </Col>
         </Row>
         <Row>
-          <Col size="md-2"></Col>
-          <Col size="md-8">
-            <article>
-              <h1>Respond</h1>
-              <p>Post a response here.</p>
-              <p>
+          <div className="score-row">
+            <Col size="md-4 md-offset-1">
+              <div>
                 Current Score: <span> {this.state.score} </span>
-              </p>
-              <textarea
-                name="response"
-                value={this.state.response}
-                onChange={this.handleInputChange}
-              />
-              <br />
-              <Button onClick={this.addResponse}>
-                <span>
-                  Submit response
-                </span>
-              </Button>
-            </article>
-          </Col>
+              </div>
+              <div className="like-blogPage">
+                Like {this.state.bloggerDetail.name}'s thread and spark an
+                interest.
+              <Button onClick={this.submitLikeBtn}>
+                  <span role="img" aria-label="thumbs">
+                    👍
+                </span>{" "}
+                </Button>
+              </div>
+            </Col>
+            <Col size="md-4">
+        
+            </Col>
+          </div>
         </Row>
         <Row>
-          <Col size="md-2">
-            <div className="like-blogPage">
-              Like {this.state.bloggerDetail.name}'s thread and spark an
-              interest.
-              <Button onClick={this.submitLikeBtn}>
-                <span role="img" aria-label="thumbs">
-                  👍
-                </span>{" "}
-              </Button>
-            </div>
+          <Col size="md-8 md-offset-1">
+            <div>{this.state.responses.length} responses</div>
+            {responseArea}
           </Col>
         </Row>
         <Row>
