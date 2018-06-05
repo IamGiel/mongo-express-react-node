@@ -3,16 +3,12 @@ import Button from "../../components/Buttons";
 import Reply from "./Reply";
 import bloggerAPI from "../../utils/bloggerAPI";
 
-//EH just adding these styles to easier visualize the functionality
-const responseStyle = {
-    backgroundColor: "#f6f6f6",
-    margin: "12px 0"
-}
-
 class Response extends Component {
     state = {
         replies: this.props.replies,
-        reply: ""
+        reply: "",
+        showReplyForm: false,
+        showReplies: false,
     }
 
     addReply = () => {
@@ -21,7 +17,16 @@ class Response extends Component {
             reply: this.state.reply
         }).then(res => {
             this.setState({ replies: [...this.state.replies, res.data.reply], reply: "" })
+            this.toggleShowReplyForm();
         })
+    }
+
+    toggleShowReplyForm = () => {
+        this.state.showReplyForm ? this.setState({ showReplyForm: false }) : this.setState({ showReplyForm: true })
+    }
+
+    toggleShowReplies = () => {
+        this.state.showReplies ? this.setState({ showReplies: false }) : this.setState({ showReplies: true })
     }
 
     handleInputChange = event => {
@@ -32,8 +37,36 @@ class Response extends Component {
     };
 
     render() {
+        //Show reply form conditional render
+        let replyArea;
+        if (this.state.showReplyForm) {
+            replyArea = (
+                <div>
+                    <textarea
+                        name="reply"
+                        value={this.state.reply}
+                        onChange={this.handleInputChange}
+                    />
+                    <Button onClick={this.addReply}>
+                        <span>Submit reply</span>
+                    </Button>
+                </div>
+            )
+        } else {
+            replyArea = (
+                <div>
+                    <div>{this.state.replies.length} replies</div>
+                    <Button onClick={this.toggleShowReplyForm}>
+                        <span>Add reply</span>
+                    </Button>
+
+                </div>
+            )
+        }
+
+        //Show all replies conditional render
         let replies;
-        if (this.state.replies.length > 0) {
+        if (this.state.replies.length > 0 && this.state.showReplies) {
             replies = this.state.replies.map(reply => {
                 const { date, name, text, _id } = reply;
                 return (
@@ -43,26 +76,25 @@ class Response extends Component {
                         text={text}
                     />
                 )
-            })
-        } else {
-            replies = "There are no replies"
+            }
+            )
+        }
+
+        //Show/hide replies conditional render
+        let showRepliesButton;
+        if (this.state.replies.length) {
+            showRepliesButton = <Button onClick={this.toggleShowReplies}>
+                {this.state.showReplies ? "Hide replies" : "Show replies"}
+            </Button>
         }
 
         return (
-            <div className="response" style={responseStyle}>
+            <div className="response">
                 <div>Name: {this.props.name}</div>
                 <div>Date: {this.props.date}</div>
                 <p>Response: {this.props.text}</p>
-                <div>
-                    <textarea
-                        name="reply"
-                        value={this.state.reply}
-                        onChange={this.handleInputChange}
-                    />
-                    <Button onClick={this.addReply}>
-                        <span>Add reply</span>
-                    </Button>
-                </div>
+                {replyArea}
+                {showRepliesButton}
                 <div>
                     {replies}
                 </div>
