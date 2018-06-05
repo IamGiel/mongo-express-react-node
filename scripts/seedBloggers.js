@@ -8,7 +8,7 @@ mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/yap", {
   useMongoClient: true
 });
 
-const blogSeed = [
+const blogSeed = [ 
           {
             imgUrl: "https://www.ienglishstatus.com/wp-content/uploads/2018/04/Anonymous-Whatsapp-profile-picture.jpg", 
             name: "Gel", 
