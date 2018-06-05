@@ -14,10 +14,10 @@ import "../styling/BlogPage.css";
 // };
 
 const imgStyle = {
-  outline: "10px",
+  outline: "5px",
   outlineStyle: "outset",
-  height: "100%",
-  maxHeight: "200px"
+  width: "100%",
+  maxWidth: "300px",
 }
 
 const blogTitle = {
@@ -113,7 +113,7 @@ class BlogPage extends Component {
           <Col size="md-8">
             {/* putting the blog post inside a panel */}
             <div className="panel panel-default">
-              <div className="panel-body">
+              <div className="panel-body testtest">
                 <Row>
                   <Col size="md-1"></Col>
                   <Col size="md-10">
@@ -140,7 +140,8 @@ class BlogPage extends Component {
           </Col>
         </Row>
         <Row>
-          <Col size="md-10 md-offset-1">
+          <Col size="md-2"></Col>
+          <Col size="md-8">
             <article>
               <h1>Respond</h1>
               <p>Post a response here.</p>
@@ -152,6 +153,7 @@ class BlogPage extends Component {
                 value={this.state.response}
                 onChange={this.handleInputChange}
               />
+              <br />
               <Button onClick={this.addResponse}>
                 <span>
                   Submit response
