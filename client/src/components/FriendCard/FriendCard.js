@@ -5,7 +5,7 @@ const FriendCard = props => (
   <div className="card hoverEffect">
     <a href="/blogform/">
       <div className="img-container">
-        <img alt={props.name} src={props.imgUrl} />
+        <img alt={props.name} src={props.imgUrl} className="img-styling"/>
       </div>
       <div className="content">
         <ul>
