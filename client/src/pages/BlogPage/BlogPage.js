@@ -176,7 +176,8 @@ class BlogPage extends Component {
           </Col>
         </Row>
         <Row>
-          <Col size="md-10 md-offset-1">
+          <Col size="md-2"></Col>
+          <Col size="md-8">
             <h1>Responses</h1>
             <div>{responses}</div>
           </Col>
