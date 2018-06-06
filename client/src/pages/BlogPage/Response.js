@@ -47,7 +47,7 @@ class Response extends Component {
                         value={this.state.reply}
                         onChange={this.handleInputChange}
                     />
-                    <Button onClick={this.addReply}>
+                    <Button disabled={this.state.reply.length > 0 ? false : true} onClick={this.addReply}>
                         <span>Submit reply</span>
                     </Button>
                 </div>

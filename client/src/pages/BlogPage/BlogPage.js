@@ -39,7 +39,6 @@ class BlogPage extends Component {
   // When this component mounts, grab the book with the _id of this.props.match.params.id
   // e.g. localhost:3000/books/599dcb67f0f16317844583fc
   componentDidMount() {
-    //EH TODO - make sure this loads all response and 
     this.loadBloggers();
   }
 
@@ -105,7 +104,7 @@ class BlogPage extends Component {
               value={this.state.response}
               onChange={this.handleInputChange}
             />
-            <Button onClick={this.addResponse}>
+            <Button disabled={this.state.response.length > 0 ? false : true} onClick={this.addResponse}>
               <span>Submit response</span>
             </Button>
         </div>
