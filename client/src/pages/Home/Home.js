@@ -50,7 +50,7 @@ class Blogger extends Component {
               {/* <p>Respond to any topic below or... </p> */}
               <Link to={"/blogform/"}>
                 <button className="beginYapping">
-                  Share a Yap{" "}
+                  Share a Yap
                 </button>
               </Link>
             </p>
