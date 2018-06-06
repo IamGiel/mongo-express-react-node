@@ -13,7 +13,7 @@ const FriendCard = props => (
             <strong>Name:</strong> {props.name}
           </li>
           <li>
-            <strong>Yap'n about:</strong> {props.subject}
+            <strong>Title:</strong> {props.subject}
           </li>
           <li>
             <strong>Yap:</strong> {props.yap}
