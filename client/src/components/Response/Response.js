@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import Button from "../../components/Buttons";
-import Reply from "./Reply";
+import Reply from "../Reply";
 import bloggerAPI from "../../utils/bloggerAPI";
 
 class Response extends Component {

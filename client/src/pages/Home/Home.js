@@ -40,7 +40,7 @@ class Blogger extends Component {
     return (
       <div>
         <Container fluid>
-          <Jumbotron style={{ backgroundColor: "antiquewhite" }}>
+          <Jumbotron>
             <h1>See whats Yappin'</h1>
             <p>
               Blog Freely...{" "}
@@ -48,9 +48,11 @@ class Blogger extends Component {
                 🐶
               </span>
               {/* <p>Respond to any topic below or... </p> */}
-              <button className="beginYapping">
-                <Link to={"/blogform/"}>Share a Yap</Link>{" "}
-              </button>
+              <Link to={"/blogform/"}>
+                <button className="beginYapping">
+                  Share a Yap
+                </button>
+              </Link>
             </p>
           </Jumbotron>
         </Container>
