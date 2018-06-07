@@ -96,6 +96,7 @@ class BlogPage extends Component {
 
     //Add response conditional render
     let responseArea;
+    let userResponses = this.state.response.toString();
     if (this.state.showResponseForm) {
       responseArea = (
         <div className="response-form">
@@ -104,7 +105,7 @@ class BlogPage extends Component {
               value={this.state.response}
               onChange={this.handleInputChange}
             />
-            <Button disabled={this.state.response.length > 0 ? false : true} onClick={this.addResponse}>
+            <Button disabled={userResponses.match((/^[ A-Za-z#@,]+$/))  ? false : true} onClick={this.addResponse}>
               <span>Submit response</span>
             </Button>
         </div>
