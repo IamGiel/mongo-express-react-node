@@ -38,7 +38,10 @@ class Response extends Component {
 
     render() {
         //Show reply form conditional render
+
         let replyArea;
+        let userResponses = this.state.reply.toString();
+
         if (this.state.showReplyForm) {
             replyArea = (
                 <div>
@@ -47,7 +50,7 @@ class Response extends Component {
                         value={this.state.reply}
                         onChange={this.handleInputChange}
                     />
-                    <Button onClick={this.addReply}>
+                    <Button disabled={userResponses.match((/.*\S.*/g))  ? false : true} onClick={this.addReply}>
                         <span>Submit reply</span>
                     </Button>
                 </div>
