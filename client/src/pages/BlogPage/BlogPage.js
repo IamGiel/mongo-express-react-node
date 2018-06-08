@@ -105,7 +105,7 @@ class BlogPage extends Component {
               value={this.state.response}
               onChange={this.handleInputChange}
             />
-            <Button disabled={userResponses.match((/^[ A-Za-z#@,]+$/))  ? false : true} onClick={this.addResponse}>
+            <Button disabled={userResponses.match((/.*\S.*/g))  ? false : true} onClick={this.addResponse}>
               <span>Submit response</span>
             </Button>
         </div>
