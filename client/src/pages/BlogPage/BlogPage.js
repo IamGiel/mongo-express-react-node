@@ -3,7 +3,7 @@ import React, { Component } from "react";
 import { Col, Row, Container } from "../../components/Grid";
 import bloggerAPI from "../../utils/bloggerAPI";
 import Button from "../../components/Buttons";
-import Response from "./Response";
+import Response from "../../components/Response";
 import "../styling/BlogPage.css";
 
 // just to style the image
