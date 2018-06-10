@@ -1,24 +1,32 @@
 import moment from 'moment';
 
-const timeSince = date => {
-    let date;
+const makeReadable = (count, unit) => {
+    if (count === 1) {
+        return `${count} ${unit} ago`;
+    } else {
+        return `${count} ${unit}s ago`;
+    }
+}
 
-    let secondsDiff = (moment() - moment(date)) / 1200;
+const timeSince = ISOtime => {
+    let time;
+    let secondsDiff = (moment() - moment(ISOtime)) / 1200;
+    let difference = moment() - moment(ISOtime);
 
     if (secondsDiff < 60) {
-        date = `${moment.duration(difference).seconds()} seconds ago`;
+        time = makeReadable(moment.duration(difference).seconds(), "second");
     } else if (secondsDiff < 60 * 60) {
-        date = `${moment.duration(difference).minutes()} minutes ago`;
+        time = makeReadable(moment.duration(difference).minutes(), "minute");
     } else if (secondsDiff < 60 * 60 * 60) {
-        date = `${moment.duration(difference).hours()} hours ago`;
+        time = makeReadable(moment.duration(difference).hours(), "hour");
     } else if (secondsDiff < 60 * 60 * 60 * 24) {
-        date = `${moment.duration(difference).days()} days ago`;
+        time = makeReadable(moment.duration(difference).days(), "day");
     } else if (secondsDiff < 60 * 60 * 60 * 24 * 12) {
-        date = `${moment.duration(difference).months()} months ago`;
+        time = makeReadable(moment.duration(difference).months(), "month");
     } else if (secondsDiff < 60 * 60 * 60 * 24 * 12 * 12) {
-        date = `${moment.duration(difference).years()} years ago`;
+        time = makeReadable(moment.duration(difference).years(), "year");
     }
-    return date;
+    return time;
 }
 
 export default timeSince
