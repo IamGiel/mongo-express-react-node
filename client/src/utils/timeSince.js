@@ -1,9 +1,9 @@
 import moment from 'moment';
 
-const timeSince = ISOdate => {
+const timeSince = date => {
     let date;
-    let secondsDiff = (moment() - moment(ISOdate)) / 1200;
-    let difference = moment() - moment(ISOdate);
+
+    let secondsDiff = (moment() - moment(date)) / 1200;
 
     if (secondsDiff < 60) {
         date = `${moment.duration(difference).seconds()} seconds ago`;
