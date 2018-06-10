@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import Button from "../../components/Buttons";
 import Reply from "../Reply";
 import bloggerAPI from "../../utils/bloggerAPI";
+import timeSince from "../../utils/timeSince"
 
 class Response extends Component {
     state = {
@@ -91,11 +92,13 @@ class Response extends Component {
             </Button>
         }
 
+
+
         return (
             <div className="response">
                 <div>Name: {this.props.name}</div>
-                <div>Date: {this.props.date}</div>
-                <p>Response: {this.props.text}</p>
+                <div>{timeSince(this.props.date)}</div>
+                <p>{this.props.text}</p>
                 {replyArea}
                 {showRepliesButton}
                 <div>
