@@ -122,10 +122,10 @@ class BlogPage extends Component {
     let responses;
     if (this.state.responses.length !== 0) {
       responses = this.state.responses.map(response => {
-        const { _id, name, text, date, replies } = response
+        const { _id, name, text, date, replies } = response //nice use of es6 destructor here!
         return (
           < Response
-            key={_id}
+            key={_id} //cleaner
             id={_id}
             name={name}
             text={text}
